@@ -1,0 +1,883 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{svg}
+\usepackage{wrapfig}
+\usepackage{amsthm}     %teoremi, definizioni, ...
+\usepackage{physics}    %notazione braket
+\usepackage{parskip}    %skip tra paragrafi e sostituisce // 
+\usepackage{bbold}      %identità
+
+
+\newtheorem{thm}{Teo}[section]
+\newtheorem{prop}{Prop}[section]
+\newtheorem*{idea}{Idea}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{cor}{Cor}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Def}[section]
+\newtheorem{observation}{Oss}[section]
+\newtheorem{example}{Ex}[section]
+
+
+\title{Appunti}
+\author{VG}
+\date{December 2022}
+
+\begin{document}
+\maketitle
+
+\section{Rottura spontanea di simmetria}
+
+\begin{definition}[Rottura spontanea di simmetria (SSB)]
+    La SSB si verifica quando l'azione ha una certa simmetria, ma la teoria ha una famiglia di vuoti degeneri che trasformano l'uno nell'altro sotto questa simmetria
+
+\end{definition}
+Consideriamo l'esempio di un ferromagnete, per cui
+
+\[
+\mathcal{H} = -J\sum_{\langle i,j \rangle} \mathbf{s}_i \cdot \mathbf{s}_j
+\]
+
+L'azione è invariante sotto rotazioni spaziali.
+
+Sopra $T_c$ lo stato fondamentale è unico con magnetizzazione nulla; sotto $T_c$ la magnetizzazione è $\neq 0$, quindi possiamo rompere la simmetria ruotando attorno l'asse di magnetizzazione.
+
+La rottura spontanea di simmetria è dovuta al fatto che il sistema sceglie un vuoto tra quelli disponibili.
+
+\begin{observation}
+Una caratteristica della SSB è l'esistenza di un parametro d'ordine che ha un valore d'aspettazione non nullo sul vuoto.
+\end{observation}
+Per il ferromagnete tale parametro è la magnetizzazione; per il caso di un potenziale a doppia buca
+\[
+V(\phi) = \frac{1}{2}\lambda^2(\phi^2 - \eta^2)^2    
+\]
+tale parametro è 
+\[
+\frac{<\phi>}{\eta} = \pm 1    
+\]
+In ogni caso il parametro d'ordine è una quantità \underline{non} invariante sotto la simmetria.
+\\
+Vediamo come questo si traduce nel caso dei gruppi di Lie.
+
+Sia 
+\[U = \exp(i\theta^a T^a)\]
+Se il vuoto è invariante:
+\[
+    U\ket{0} = \ket{0} 
+\]
+quindi
+\[T^a\ket{0} = 0 \quad \forall a\]
+Altrimenti 
+\[
+\exists a \quad \textit{ t.c. } \quad T^a\ket{0} \neq 0    
+\]
+Nel caso di un ferromagnete, se la magnetizzazione è lungo z, allora $J_z\ket{0} = 0$, ma
+\[
+J_x \ket{0} \neq 0 \qquad J_y \ket{0} \neq 0    
+\]
+Nel caso di una doppia buca, considerando $\phi$ complesso \((V(\phi) = \frac{1}{2}\lambda^2 (|\phi|^2 - \eta^2)^2)\), abbiamo un set continuo di minimi
+\[
+\phi = \eta e^{i\alpha}    
+\]
+con 
+\[
+<|\phi|> = \eta \qquad <\alpha> = \textit{ arbitrario }  
+\]
+La lagrangiana 
+\[
+\mathcal{L} = \frac12\partial_\mu\phi^\dagger \partial^\mu\phi - V(\phi)   
+\]
+è invariante sotto $U(1)$, mentre la SSB fissa un minimo, cioè $<\alpha> = \alpha_0$ che possiamo prendere WLOG pari a 0. Quindi
+\[
+<\phi> = \eta    
+\]
+Studiamo ora lo spettro della teoria dopo la SSB, cioè sviluppando per piccole oscillazioni. Scriviamo
+
+\[
+\phi(x) = \eta + \frac{1}{\sqrt{2}}\left(\chi(x) + i\psi(x)\right)    
+\]
+
+con $\chi, \psi$ reali.
+
+Il set di vuoti è allora un cerchio di raggio $\eta$, $\chi$ è una fluttuazione nella direzione ortogonale alla varietà dei vuoti, mentre $\psi$ è una fluttuazione tangenziale.
+
+Quindi $\eta + i \psi$ è un altro vuoto per $\psi$ infinitesimo, quindi un piccolo spostamento lungo $\psi$ non costa energia. Possiamo perciò associare a $\psi$ un modo massless, analogamente associamo a $\chi$ un modo massivo.
+
+Per vederlo algebricamente basta sostituire la nuova parametrizzazione di $\phi$ nella lagrangiana.
+
+In generale vale il teorema di Goldstone che afferma la seguente proposizione.
+
+\begin{thm}[Goldstone]
+    Data una teoria Lorentz invariante, se una simmetria globale continua viene rotta spontaneamente, allora espandendo attorno al vuoto appare una particella massless per ogni generatore che rompe la simmetria ($T^a\ket{0} \neq 0$). Tale particella è detta Bosone di Goldstone.
+\end{thm}
+
+\begin{prop}
+    La dimensione della varietà dei vuoti è pari al numero di generatori che rompono la simmetria.
+\end{prop}
+
+Introduciamo ora anche un campo di gauge $A_\mu$. Allora la lagrangiana sarà
+\[
+\mathcal{L} = - \frac{1}{4} F_{\mu\nu}F^{\mu\nu} + \frac12 D_\mu\phi^\dagger D^\mu\phi - V(\phi)
+\]
+con 
+\[
+D_\mu = \partial_\mu + iqA_\mu    
+\]
+Se parametrizziamo il campo come 
+\[
+\phi(x) = (\eta + \frac{1}{\sqrt{2}} \varphi(x))e^{i\alpha(x)}    
+\]
+possiamo porre $\alpha = 0$ tramite trasformazioni di gauge.
+\\
+Sostituendo infine nella lagrangiana otteniamo un campo di gauge massivo.
+\\
+L'equazione del moto è poi 
+\[
+\partial_\mu F^{\mu\nu} + m_A^2 A^\nu = 0    
+\]
+detta equazione di Proca. Contraendo poi con $\partial_\nu$ ed usando il fatto che \(\partial_\mu \partial_\nu F^{\mu\nu} = 0, m^2_A \neq 0\) otteniamo
+\[
+\partial_\mu A^\mu = 0    
+\]
+cioè
+\[
+(\square^2 + m^2_A)A^\nu = 0    
+\]
+L'equazione di Proca descrive allore un bosone di gauge massivo.
+\\
+Possiamo ora decomporre $A_\mu$ in $0 \oplus 1$. Espandendo $A_\mu$ in onde piane 
+\[
+\partial_\mu A^\mu = 0 \longrightarrow k_\mu \epsilon^\mu(k) = 0    
+\]
+che elimina la componente con vettore di polarizzazione $\epsilon_\mu(k) \sim k_\mu$ poichè per questa avremmo
+\[
+k_\mu \epsilon^\mu  \sim k^2 = m^2_A \neq 0   
+\]
+Nel sistema a riposo (che esiste poichè $m^2_A \neq 0$)
+\[
+k_\mu = m^2_A (1, 0, 0, 0)    
+\]
+quindi abbiamo eliminato la parte scalare di $A_\mu$ che è allora una particella a spin 1.
+
+\begin{thm}[Goldstone]
+    La rottura di una simmetria locale non produce allora bosoni di Goldstone, ma fa sì che i campi di gauge acquistino massa 
+\end{thm}
+In questo caso $\phi$ è detto \textit{campo di Higgs} ed il meccanismo che produce un bosone di gauge massivo è detto \textit{meccanismo di Higgs}.
+\begin{observation}
+    I gradi di libertà prima e dopo la SSB sono conservati
+\end{observation}
+La SSB è realizzata in natura da fenomeni quali la superconduttività.
+
+\section{Gruppi di Lie}
+Ricordiamo che $U(N)$ è il gruppo delle matrici unitarie $N\times N$, mentre $SU(N)$ è il gruppo delle matrici unitarie $N \times N$ a determinante 1.
+\begin{observation}
+    Una matrice $U(N)$ si può scrivere come una matrice $SU(N)$ con una fase, cioè
+    \[
+    U(N) = SU(N) \otimes U(1)    
+    \]
+\end{observation} 
+Ricordiamo inoltre la notazione esponenziale, per cui una matrice U $N \times N$ si può scrivere come
+\[
+U = e^{A} \left( \equiv \sum_{n \neq 0} \frac{1}{n!} A^n \right)    
+\]
+\begin{prop}
+    U unitaria $\Rightarrow A^\dagger = -A$, cioè A anti-hermitiana 
+\end{prop}
+
+\begin{proof}
+    \[U^\dagger = e^{A^\dagger}, U^{-1} = e^{-A}\] U unitaria $\Rightarrow U^\dagger = U^{-1}$ \\
+\end{proof}
+
+Possiamo allora ridefinire 
+\[U = e^{iH}\]
+con H hermitiana ($H^\dagger = H$).
+\\
+Se poi $U \in SU(N)$ allora 
+\[
+\det U = \det e^A = e^{\tr A} = e^{i\tr H} = 1  
+\]
+cioè    
+\[
+    \tr A = \tr H = 0
+\]
+\\
+La dimensione di $SU(N)$ è allora data dalla dimensione dello spazio delle matrici hermitiane a traccia nulla, cioè
+\[
+\dim SU(N) = N^2 - 1    
+\]
+Analogamente
+\[
+\dim U(N) = N^2    
+\]
+Quindi possiamo scrivere una generica matrice hermitiana a traccia nulla H come
+\[
+H = \sum_{a = 1}^{N^2 - 1} \theta_a F_a     
+\]
+con $\left\{ F_a  \right\}$ base dello spazio.
+
+Allora
+\[
+U = \exp \left( i \theta_a F_a  \right) \equiv U(\theta)    
+\]
+dove i \(\theta_a \) sono detti parametri del gruppo e gli $F_a$ sono detti generatori del gruppo.
+
+\subsection{Algebra di Lie}
+Si può vedere che i generatori del gruppo di Lie soddisfano le regole di commutazione   
+\[
+    [F_a, F_b] = i c_{ab}^c F_c 
+\]
+dove gli $c_{ab}^c$ sono parametri reali e vengono chimati costanti di struttura del gruppo.
+
+\begin{idea}
+    \[
+    U_1 U_2 = U_3 \in SU(N)    
+    \]
+    Svolgendo l'operazione si ottiene il risultato
+\end{idea}
+Con questa struttura si dice che i generatori del gruppo formano un'algebra di Lie (spazio vettoriale, spazio tangente)
+\begin{prop}
+    Per definizione 
+    \[
+    c_{ab}^c = -c_{ba}^c     
+    \]
+\end{prop}
+Tramite un'opportuna scelta dei generatori possiamo rendere le costanti di struttura completamente antisimmetriche in tutti e 3 gli indici.
+
+\begin{thm}
+    Se i generatori sono hermitiani allora esiste una base per l'algebra di Lie 
+    \[
+    \tilde{F_a} = L_{ab} F_b     
+    \]
+    con $L_{ab}$ matrice $(N^2 - 1)\times(N^2 - 1)$ reale ed invertibile, tale che
+    \[
+    [\tilde{F_a}, \tilde{F_b}] = i \tilde{c}_{ab}^c \tilde{F_c}    
+    \]
+    con $\tilde{c}_{ab}^c$ antisimmetrici in $\{a, b, c\}$.
+    
+    Inoltre vale che
+    \[
+    \tr[\tilde{F_a}\tilde{F_b}] = \lambda \delta_{ab}, \qquad \lambda > 0     
+    \]
+\end{thm}
+
+\begin{proof}
+    Definiamo 
+    \[
+    g_{ab} \equiv \tr[F_a F_b]    
+    \]
+    che è una matrice reale, simmetrica e definita positiva, cioè una forma quadratica.
+
+    Possiamo allora diagonalizzarla con matrici ortogonali
+    \[
+    F_a' = O_{ab} F_b    
+    \]
+    Allora 
+    \[
+    g_{ab}' = \tr [F_a' F_b'] = (O g O^t)_{ab} = \lambda_a \delta_{ab}. \qquad \lambda_a > 0     
+    \]
+    Posso poi riscalare ponendo
+    \[
+    \tilde{F_a} = \sqrt{\frac{\lambda}{\lambda_a}}F_a'    
+    \]
+    ed ottengo
+    \[
+    \tilde{g} = \lambda \mathbb{1}, \qquad \lambda > 0    
+    \]
+    Con questa scelta le costanti di struttura risultano completamente antisimmetriche
+    \[
+    [\tilde{F_a}, \tilde{F_b}] = i \tilde{c}_{ab}^c \tilde{F_c}    
+    \]
+    \[
+    \Rightarrow \tilde{c}_{ab}^c = \frac{1}{i\lambda}\tr([\tilde{F_a}, \tilde{F_b}]\tilde{F_c})    
+    \]
+    usando $\tilde{g}_{ab} = \lambda \delta_{ab}$. Da cui la tesi usando la ciclicità della traccia.
+
+\end{proof} 
+Di seguito useremo la notazione per cui 
+\[
+    \tilde{c}_{ab}^c = f_{abc} \qquad \tilde{F_a} = F_a 
+\]
+e fisseremo $\lambda = \frac12$ per cui
+\[
+\tr(F_a F_b) = \frac12 \delta_{ab}    
+\]
+
+\begin{observation}[Rango]
+    [\dots]
+\end{observation}
+
+\begin{definition}[Operatore di Casimir]
+    Si dice operatore di Casimir un polinomio di generatori C t.c. commuta con tutti i generatori dell'algebra, cioè
+    \[
+    [C, F_a] = 0, \qquad \forall a     
+    \]
+\end{definition}
+
+\begin{example}
+    Per $SU(N)$
+    \[
+    F^{(2)} = \sum_{a = 1}^{N^2 - 1}F_a^2    
+    \]
+    è il Casimir quadratico.
+\end{example}
+
+\begin{definition}[Rango]
+    Si dice rango dell'algebra di Lie il numero massimo di generatori che commutano tra loro, cioè sono simultaneamente diagonalizzabili.
+\end{definition}
+
+Il rango è inoltre la dimensione della sotto algebra di Cartan.
+
+\begin{thm}[Racah]
+    Il rango di $SU(N)$ è $N - 1$ ed è uguale al numero di operatori di Casimir funzionalmente indipendenti.
+\end{thm}
+
+\subsection{Rappresentazioni di $SU(N)$}
+
+\begin{definition}
+    Dato un gruppo G con elementi $g$, si dice rappresentazione del gruppo un omomorfismo tra gli elementi del gruppo e lo spazio delle applicazioni lineari $GL(\mathbb{C}^n)$ che preserva l'operazione di gruppo.
+    
+    Quindi R è una rappresentazione se 
+    \[
+    g_1 g_2 = g_3 \Rightarrow R(g_1) R(g_2) = R(g_3)    
+    \]
+\end{definition}
+In questo caso $\mathbb{C}^n$ è lo spazio base della rappresentazione ed n è la dimensione.
+
+Analogamente la rappresentazione di un'algebra di Lie è un omomorfismo tra i generatori e gli elementi di $GL(\mathbb{C}^n)$ che preserva la struttura dell'algebra, cioè
+\[
+[F_a, F_b] = i f_{abc}F_c \Rightarrow [F_a^{(r)}, F_b^{(r)}] = if_{abc}F_c^{(r)}    
+\]
+dove $F_a^{(r)}$ è il generatore nella rappresentazione r.
+
+\begin{observation}
+    Se la dimensione della rappresentazione è $d(r)$ allora le matrici sono $d(r) \times d(r)$
+\end{observation}
+
+Indicheremo con f la rappresentazione fondamentale.
+
+Un esempio di rappresentazione che useremo in seguito è la rappresentazione aggiunta che ha dimensione $d(r) = N^2 - 1$ e 
+\[
+(F_a^{(agg)})_{bc} = -if_{abc}    
+\]
+
+\begin{prop}[Identità di Jacobi]
+   \[ Cycl_{abc}([F_a, [F_b, F_c]]) = 0\]
+\end{prop}
+
+Dalla identità di Jacobi per i generatori se ne ricava una per le costanti di struttura del gruppo
+\[
+Cycl_{abc}(f_{aed}f_{bce}) = 0    
+\]
+che possiamo riscrivere in termini della rappresentazione aggiunta, cioè come
+\[
+[F_a^{(agg)}, F_b^{(agg)}] = i f_{abc}F_c^{(agg)}    
+\]
+che dimostra che l'aggiunta è effettivamente una rappresentazione.
+
+\begin{observation}
+    La rappresentazione aggiunta è ancora hermitiana
+\end{observation}
+
+\begin{definition}
+Una rappresentazione si dice riducibile se $\exists V' \subseteq V = \mathbb{C}^n$ sottospazio vettoriale t.c. 
+\[
+R(g)V' \subseteq V' \qquad \forall g \in G    
+\]
+In termini di matrici questo implica che possiamo ridurre $R(g)$ a blocchi.
+\end{definition}
+
+\begin{example}
+    Sia \( n' = \dim V' \), allora prendendo come base autovettori di $V'$ (più altro)
+    \[
+    R(g) = 
+    \begin{bmatrix}
+        R_1 & S \\
+        0 & R_2
+    \end{bmatrix}    
+    \]
+    dove $R_1$ è una matrice $n' \times n'$.
+    Se accade che anche $S = 0$ allora R si dice completamente riducibile.
+    In questo caso scriveremo
+    \[
+    R = R_1 \oplus R_2    
+    \]
+\end{example}
+Se invece $\not\exists V'$ invariante allora R si dice irriducibile.
+
+\begin{lemma}[Lemma di Schur]
+    Sia R una rappresentazione irriducibile di un gruppo G e sia T un operatore lineare t.c.
+    \[
+    [T, R(g)] = \qquad \forall g \in G     
+    \]
+    allora
+    \[
+        T = \lambda\mathbb{1}\qquad \lambda \in \mathbb{C}
+    \]
+\end{lemma}
+In particolare possiamo prendere come T i Casimir.
+
+\begin{thm}
+    La rappresentazione aggiunta di $SU(N)$ è irriducibile.
+\end{thm}
+
+\begin{thm}
+    Presa r rappresentazione di $SU(N)$ con generatori $F_a^{(r)}$, si ha che
+    \[
+    g_{ab}^{(r)} = \tr[F_a^{(r)}F_b^{(r)}] =T_R^{(r)}\delta_{ab}    
+    \]
+    con $T_R^{(r)}$ detto indice di Dynkin della rappresentazione r.
+\end{thm}
+
+\begin{proof}
+    Fissiamo una certa rappresentazione r ed omettiamo per semplicità l'apice che specifica la rappresentazione utilizzata.
+    Definiamo 
+    \[
+    h_{abc} = \tr\left( [F_a, F_b]F_c \right)    
+    \]
+    Allora
+    \[
+    h_{abc} = i f_{abn} \tr[F_n F_c] = i f_{abn}g_{nc} = - h_{acb}    
+    \]
+    Quindi
+    \[
+    i f_{abn} g_{nc} = - i f_{acn}g_{nb}    
+    \]
+    ma g è simmetrico, quindi
+    \[
+    g_{cn}(- i f_{anb}) = -i f_{acn}g_{nb}   
+    \]
+    \[
+    \Rightarrow g F_a^{(agg)} = F_a^{(agg)}g    
+    \]
+    cioè g commuta conn tutti i generatori dell'aggiunta, allora per il lemma di Schur g è un multiplo dell'identità.
+
+\end{proof}
+
+\begin{prop}
+    Se r è irriducibile allora
+    \[
+    T_R^{(r)} = \frac{1}{N^2 - 1}d(r)C_F^{(r)}    
+    \]
+    con \(F_{(r)}^{(2)} = C_F^{(r)}\mathbb{1}_{d(r)\times d(r)}\)
+\end{prop}
+
+\begin{proof}
+    Vedi esercizi.
+
+\end{proof}
+
+
+\begin{example}
+    Per la rappresentazione fondamentale \(T_R = \frac12, d(f) = N\) quindi $C_F = \frac{N^2 - 1}{N}$.
+
+    Nel caso della rappresentazione aggiunta $d(agg) = N^2 - 1$, quindi $T_R = C_F ( = N)$ (vedi esercizi).
+\end{example}
+
+\begin{prop}[Relazione di completezza per i generatori nella rappresentazione fondamentale]
+    \[\sum_{a = 1}^{N^2 - 1}(F_a)_{ij}(F_a)_{kl} = \frac12 (\delta_{il}\delta_{kj} - \frac1N \delta_{ij}\delta_{kl})\]
+\end{prop}
+
+\begin{proof}
+    Vedi esercizi
+
+\end{proof}
+
+\subsection{Rappresentazioni di $SU(2)$}
+Vediamo ora il caso specifico delle rappresentazioni irriducibili di $SU(2)$.
+
+Siano $T_a$ i generatori, allora
+\[
+[T_a, T_b] = i \epsilon_{abc}T_c    
+\]
+Riscriviamo l'algebra in termini di operatori di salita e discesa 
+\[
+T_\pm = T_1 \pm i T_2    
+\]
+In questo modo
+\begin{align*}
+[T_3, T_\pm] &= \pm T_\pm  \\  
+[T_+, T_-] &= 2T_3    
+\end{align*}
+
+Prendiamo poi come set completo di operatori commutanti $T^{(2)}, T_3$ con 
+\[
+T^{(2)} = \sum_a T_a^2 = \frac12\{T_1, T_2\} + T_3^2    
+\]
+Gli autostati simultanei verrano indicati con 
+\[
+\ket{t, t_3}    
+\]
+e
+\begin{align*}
+    T^{(2)}\ket{t, t_3}  &= t(t + 1)\ket{t, t_3}  \\
+    T_3\ket{t, t_3}  &= t_3\ket{t, t_3}  \\
+    T_\pm\ket{t, t_3}  &= \sqrt{t(t + 1) - t_3(t_3 \pm 1)}\ket{t, t_3 \pm 1}  
+\end{align*}
+con 
+\begin{align*}
+    t &\in \{0, \frac12, 1, \frac32, 2, \dots\} \\
+    t_3 &\in \{-t, -t + 1, \dots, t - 1, t\}
+\end{align*}
+I $2t + 1$ stati $\ket{t, t_3}$ per un dato t costituiscono la base dello spazio vettoriale su cui agisce la rappresentazione irriducibile di dimensione $2t + 1$.
+
+Tale rappresentazione è detta di spin t e può essere rappresentata mediante diagramma di tipo peso
+
+[Inserire diagrammi]
+
+\subsection{Rappresentazioni irriducibili di $SU(3)$}
+Riscriviamo come nel caso di $SU(2)$ l'algebra in termini di operatori di salita e discesa.
+
+Osserviamo che $SU(3)$ ha rango 2, quindi ha 2 Casimir indipendenti, quello quadratico e quello cubico
+\[
+F^{(2)} = \sum_{a = 1}^{N^2 - 1}F_a^2, \quad G^{(3)} = \frac23 d_{abc}F_aF_bF_c     
+\]
+con $d_{abc}$ tensore completamente simmetrico di $SU(3)$.
+
+Osserviamo poi che l'anticommutatore di due generatori nella fondamentale è ancora una matrice hermitiana $n\times n$, per cui, fissata la rappresentazione f 
+\[
+\{F_a, F_b\} = k_{ab} \mathbb{1}\footnote{Perchè non è a traccia nulla} + d_{abc}F_c    
+\]
+Tracciando l'anticommutatore si trova che 
+\[
+k_{ab} = \frac{\delta_{ab}}{N}.    
+\]
+Proiettando, invece, si trova che 
+\[
+d_{abc} = 2 \tr[\{F_a, F_b\}F_c]    
+\]
+\begin{observation}
+    $d_{abc}$ per $SU(2)$ è zero, infatti non abbiamo un Casimir cubico per $SU(2)$.
+\end{observation}
+Un insieme completo di operatori commutanti è
+\[
+    F^{(2)}, G^{(3)}, T^{(2)}, Y, T_3
+\]
+dove
+\[
+T_3 = F_3, Y = \frac{2}{\sqrt{3}}F_8    
+\]
+Riscriviamo ora l'algebra.
+
+Siano
+\[
+T_\pm = F_1 \pm iF_2, \quad U_\pm = F_4 \pm iF_5, \quad V_\pm = F_6 \pm iF_7    
+\]
+da cui
+\begin{align*}
+    [T_3, T_\pm] &= \pm T_\pm & [Y, T_\pm] &= 0 & [T_+, T_-] &= 2T_3 \\
+    [T_3, U_\pm] &= \mp \frac12 U_\pm & [Y, U_\pm] &= U_\pm & [U_+, U_-] &=\frac32 Y - T_3 =2U_3 \\
+    [T_3, V_\pm] &= \pm \frac12 V_\pm & [Y, V_\pm] &= \pm V_\pm & [V_+, V_-] &=\frac32 Y + T_3 =2V_3 \\
+\end{align*}
+Ogni riga definisce rispettivamente il sottogruppo chiuso di T-spin, U-spin e V-spin.
+
+[Metodo grafico]
+
+\subsection{Rappresentazione complessa coniugata}
+Consideriamo una rappresentazione r 
+\begin{prop}
+   \[ U_1^{(r)}U_2^{(r)} = U_3^{(r)} \Rightarrow  U_1^{(r)^*}U_2^{(r)^*} = U_3^{(r)^*}\]
+\end{prop}
+Possiamo allora definire una rappresentazione $r^*$. In termini di generatori, se
+\[
+U^{(r)} = \exp(i \epsilon_a F_a^{(r)})\qquad \epsilon_a \in \mathbb{R}    
+\]
+allora
+\[
+U^{(r)^*} = \exp(-i \epsilon_a F_a^{(r)*}) = \exp(i \epsilon_a F_a^{(r^*)})
+\]
+quindi
+\[
+F_a^{(r^*)} = - F_a^{(r)*}    
+\]
+
+\begin{prop}
+    \[
+    [F_a^{(r)}, F_b^{(r)}] = i f_{abc}F_c^{(r)} \Rightarrow 
+    [F_a^{(r*)}, F_b^{(r*)}] = i f_{abc}F_c^{(r*)}     
+    \]
+\end{prop}
+
+Le due rappresentazioni sono distinte? $r, r^*$ non sono distinte se sono legate da una relazione di equivalenza:
+\begin{definition}
+    $r^*$ è equivalente ad $r$ se esiste $S$ matrice $d(r) \times d(r)$~\footnote{$d(r) = d(r^*)$} invertibile t.c.
+    \[
+    U^{(r^*)}(\epsilon) = S U^{(r)}(\epsilon)S^{-1}   \qquad \forall \epsilon
+    \]
+    ovvero
+    \[
+        F_a^{(r^*)}(\epsilon) = S F_a^{(r)}(\epsilon)S^{-1}   \qquad \forall a
+    \]
+    In tal caso r si dice reale.
+\end{definition}
+
+\begin{prop}
+    Tutte le rappresentazioni irriducibili di $SU(2)$ sono reali.
+\end{prop}
+
+Ad esempio la rappresentazione fondamentale di $SU(2)$ è $F_a = \frac{\sigma_a}{2}$, allora
+\[
+F_a^{(f^*)} = -F_a^* = - \frac{\sigma_a}{2} = \sigma_2 F_a \sigma_2\qquad S = \sigma_2 = \sigma_2^{-1}
+\]
+\begin{prop}
+    La rappresentazione aggiunta di $SU(N)$ è sempre reale
+\end{prop}
+\begin{proof}
+    \[(F_a^{(agg)})_{bc} = -if_{abc}, \qquad f_{abc} \in \mathbb{R}\]
+    \[
+        (F_a^{(agg^*)})_{bc} = -(F_a^{(agg)})^*_{bc} = -(-i f_{abc}) = -if_{abc} = (F_a^{(agg)})_{bc} \qquad \forall a,b,c 
+    \]
+
+\end{proof}
+\begin{thm}
+    Se una data rappresentazione r di $SU(N)$ è reale, allora tutti i suoi generatori devono avere autovalori in coppie di segno opposto, cioè se $\lambda$ è autovalore anche $-\lambda$ deve esserlo.
+\end{thm}
+\begin{proof}
+    $SU(N)$ è compatto quindi ogni sua rappresentazione è equivalente ad una rappresentazione unitaria, cioè una rappresentazione in cui i generatori sono hermitiani.
+
+    WLOG consideriamo allora $F_a$ hermitiani: $F_a^{(r)^\dagger} = F_a^{(r)}$
+
+    Poichè r reale per ipotesi $\exists S$ invertibile t.c.
+    \[
+        F_a^{(r^*)} = S F_a^{(r)}S^{-1} = - F_a^{(r)*}  
+    \]
+    Detto $\ket{\lambda}$ autovettore di $F_a^{(r)}$ con autovalore $\lambda$ si ha che $\lambda \in \mathbb{R}$ per hermitianità, inoltre
+    \[
+        F_a^{(r)^*}S\ket{\lambda} = - (S F_a^{(r)}S^{-1})S\ket{\lambda} = -S F_a^{(r)}\ket{\lambda} = -\lambda S\ket{\lambda} 
+    \]
+    Prendendone il complesso coniugato 
+    \[
+    F_a^{(r)}(S\ket{\lambda})^* = -\lambda(S\ket{\lambda})^*    
+    \]
+    che ci dice che anche $-\lambda$ è autovalore di $F_a^{(r)}$.
+    
+\end{proof}
+
+\begin{observation}
+    \[
+    \ket{\lambda} \neq 0 \Rightarrow S\ket{\lambda} \neq 0   
+    \]
+    Poichè S è invertibile.
+\end{observation}
+
+\begin{cor}
+    La rappresentazione fondamentale di $SU(3)$ non è reale, cioè 3 e $3^*$ non sono equivalenti.
+
+\end{cor}
+
+\begin{proof}
+    \[
+    F_8 = \frac{\lambda_8}{2} = \frac{1}{2\sqrt{3}}
+    \begin{pmatrix}
+        1 & & \\
+        & 1 & \\
+        & & -2
+    \end{pmatrix}    
+    \]
+    che non ha autovalori in coppie di segno opposto.
+
+\end{proof}
+
+In generale per $SU(3)$ si ha che $(p,q)^* = (q, p)$.
+
+\subsection{Metodo tensoriale}
+Vediamo ora il metodo tensoriale per la classificazione delle rappresentazioni irriducibili di $SU(N)$. Siano $U$ le matrici nella rappresentazione fondamentale.
+
+\begin{definition}[Vettori controvarianti e covarianti]
+    Un vettore q si dice controvariante di $SU(N)$ se sotto una trasformazione del gruppo 
+    \[
+    q^i \to U^i_j q^j    
+    \]
+    Se poi prendiamo il complesso coniugato $\bar{q}_i \equiv (q^i)^*$, allora
+    \[
+    \bar{q}_i \to \bar{q}_i' = (U_{ij})^* \bar{q}_j = (U^\dagger)_i^j \bar{q}_j    
+    \]
+    In questo caso $\bar{q}$ si dice vettore covariante di $SU(N)$.
+\end{definition}
+
+Possiamo estendere tale definizione e definire un tensore di rango $(p, q)$ di $SU(N)$ \(T_{j_1 \dots j_q}^{i_1 \dots i_p}\) con 
+\[    
+    T_{j_1 \dots j_q}^{i_1 \dots i_p} \to T'\phantom{.}_{j_1 \dots j_q}^{i_1 \dots i_p} = U_{\alpha_1}^{i_1}\dots U_{\alpha_p}^{i_p} (U^\dagger)_{j_1}^{\beta_1} \dots (U^\dagger)_{j_q}^{\beta_q} T_{\beta_1 \dots \beta_q}^{\alpha_1 \dots \alpha_p}
+\] 
+Quindi un vettore controvariante trasforma secondo la rappresentazione fondamentale $N$ di $SU(N)$, un vettore covariante trasforma secondo $N^*$ ed un tensore $(p, q)$ trasforma come \[\underbrace{N \otimes \dots \otimes N}_{p}\otimes \underbrace{N^* \otimes \dots \otimes N^*}_{q} = N^p \otimes (N^*)^q\]
+
+\subsection{Tensori di $SU(3)$}
+Un tensore T di rango $(p, q)$ di $SU(3)$ si dice riducibile se mediante una contrazione con un tensore invariante ($\delta_{ij}, \epsilon_{ijk}$) del tipo
+\begin{align*}
+T_{j_1 \dots j_q}^{i_1 \dots i_p} \, \delta_{i_a}^{j_b}  &\to (p - 1, q - 1) \\
+T_{j_1 \dots j_q}^{i_1 \dots i_p}\,  \epsilon^{i_{p + 1} j_b j_{b'}} &\to (p + 1, q - 2) \\
+T_{j_1 \dots j_q}^{i_1 \dots i_p} \, \epsilon_{j_{q + 1} i_b i_{b'}} &\to (p - 2, q + 1)
+\end{align*}
+si ottiene un tensore $T'$ non nullo con rango più basso ($p' + q' < p + q$).
+
+Se ciò non è possibile il tensore T è irriducibile.
+
+\begin{prop}
+    Il numero di componenti indipendenti di un tensore irriducibile di rango $(p, q)$ è 
+    \[
+    d(p, q) = \frac12 (p+1)(q+1)(p+q+2)    
+    \]
+\end{prop}
+
+\begin{thm}
+    Dato un generico tensore T di rango $(p, q)$ e dette $\phi_1, \dots, \phi_d$ le sue componenti linearmente indipendenti, sotto $SU(3)$ esse trasformeranno come
+    \[
+    \begin{pmatrix}
+        \phi_1 \\
+        \vdots \\
+        \phi_d 
+    \end{pmatrix}    
+    \to 
+    \begin{pmatrix}
+        \phi_1' \\
+        \vdots \\
+        \phi_d' 
+    \end{pmatrix} 
+    = V
+    \begin{pmatrix}
+        \phi_1 \\
+        \vdots \\
+        \phi_d 
+    \end{pmatrix}
+    \]
+    con V matrice $d \times d$ che costituirà una rappresentazione d-dimensionale di $SU(3)$.
+\end{thm}
+
+\begin{prop}
+    T irriducibile $\Rightarrow$ V irriducibile.
+
+    T riducibile $\Rightarrow$ V riducibile.
+\end{prop}
+
+\begin{prop}
+    I tensori \(\delta_i^j, \epsilon_{ijk}, \epsilon^{ijk}\) sono tensori riducibili, ma essendo invarianti ad 1 componente rappresentano tutti la rappresentazione irriducibile $1 = (0, 0)$.
+\end{prop}
+
+\begin{prop}
+    La decomposizione di un tensore riducibile come somma diretta di tensori irriducibili è una proprietà invariante sotto trasformazioni del gruppo.
+\end{prop}
+
+\begin{example}
+    Vediamo a titolo d'esempio la decomposizione di un generico tensore $T^{ij}$ in parte simmetrica e parte antisimmetrica
+    \begin{alignat*}{3}
+        T^{ij} &= \frac12(T^{ij} + T^{ji}) &&+ \frac12 (T^{ij} - T^{ji}) \\
+                &= S^{ij} &&+ A^{ij}      
+    \end{alignat*}
+    con
+    \[
+    S^{ij} =  \frac12(T^{ij} + T^{ji})   
+    \]
+    tensore irriducibile $(2, 0)$, 6 componenti.
+    \[
+    A^{ij} = \frac12 (T^{ij} - T^{ji}) 
+    \]
+    tensore asimmetrico con 3 componenti equivalente a 
+    \[
+    \bar{q}_k = \epsilon_{ijk} T^{ij} = \epsilon_{ijk} (S^{ij} + A^{ij}) = \epsilon_{ijk} A^{ij}    
+    \]
+    Infatti
+    \[
+    \epsilon^{ijk} \bar{q}_k = \epsilon^{ijk} \epsilon_{\alpha \beta k} T^{\alpha \beta} = (\delta_\alpha^i \delta_\beta^j - \delta_\beta^i \delta_\alpha^j)T^{\alpha \beta} = T^{ij} - T^{ji} = 2 A^{ij}     
+    \]
+    da cui
+    \[
+    A^{ij} = \frac12 \epsilon^{ijk} \bar{q}_k    
+    \]
+    Possiamo allora riscrivere 
+    \[
+    T^{ij} = S^{ij} + \frac12 \epsilon^{ijk}\bar{q}_k    
+    \]
+    che equivale alla decomposizione
+    \[
+    3 \otimes 3 = 6 \oplus 3^*    
+    \]
+\end{example}
+
+\begin{observation}
+    \[
+    S'\phantom{.}^{ij} = U^i_\alpha U^j_\beta S^{\alpha \beta} \Rightarrow  S'\phantom{.}^{ij} = S'\phantom{.}^{ji}   
+    \]
+    \[
+    A'\phantom{.}^{ij} = U^i_\alpha U^j_\beta A^{\alpha \beta} \Rightarrow  A'\phantom{.}^{ij} = -A'\phantom{.}^{ji}   
+    \]
+    quindi
+    \[
+    T'\phantom{.}^{ij} = U^i_\alpha U^j_\beta T^{\alpha \beta} = S'\phantom{.}^{ij} + A'\phantom{.}^{ij}   
+    \]
+    cioè viene ancora decomposto come $T^{ij}$ come asserito in una proposizione precedente.
+\end{observation}
+
+\begin{prop}
+    Un tensore irriducibile $T_{j_1 \dots j_q}^{i_1 \dots i_p}$ sarà
+    \begin{itemize}
+        \item completamente simmetrico negli indici $\{i_1, \dots, i_p\}$
+        \item completamente simmetrico negli indici $\{j_1, \dots, j_q\}$
+        \item a traccia nulla
+    \end{itemize}
+\end{prop}
+
+\begin{example}
+    Un altro esempio di decomposizione utile di rappresentazione è quello che riguarda il tensore il tensore $T_j^i$
+    \begin{alignat*}{3}
+        T^i_j &= (T^i_j - \frac13 T_k^k \delta^i_j) &&+ \frac13 T_k^k \delta^i_j \\
+        &= \tilde{T}^i_j &&+ T_k^k \delta^i_j 
+    \end{alignat*}
+    che corrisponde alla decomposizione 
+    \[
+    3 \otimes 3^* = 8 \oplus 1    
+    \]
+\end{example}
+
+\begin{observation}
+    Il tensore irriducibile $(q, p)$ trasforma come il complesso coniugato del tensore irriducibile $(p, q)$.
+\end{observation}
+
+\section{QCD}
+\subsection{Modello a quark di Gell-mann \& Zweig}
+Si osserva che i mesoni più leggeri, con \(J^p = 0^-, J^p = 1^-\), occupano entrambi ottetti e singoletti di \(SU(3)\), mentre i barioni più leggeri, con \(J^p = \frac12^+, J^p=\frac32^+\), occupano ottetti e decupletti di \(SU(3)\).
+Tenendo inoltre presente che 
+\begin{align*}
+    3 \otimes 3^* &= 8 \oplus 1 \\
+    3 \otimes 3 \otimes 3 &= 1 \oplus 8 \oplus 8 \oplus 10
+\end{align*}
+G. \& Z. proposero l'idea che mesoni e barioni fossero stati legati di costituenti fondamentali detti quarks e delle loro antiparticelle dette antiquarks, che occupano rispettivamente la rappresentazione \(3\) e \(3^*\) di \(SU(3)\).
+
+In questo schema i mesoni risultano stati legati quark-antiquark con numero barionico \(B = 0\); se si assume poi che i quark abbiano spin \(\frac12\) i mesoni risulteranno avere spin intero, in particolare, negli stati di momento angolare orbitale più basso \((L = 0)\) si avrà \(J = 0\) o \(J = 1\).
+
+I barioni, invece, risultano stati legati di 3 quarks (gli antibarioni di 3 antiquarks) con numero barionico \(B = 1\, (B = -1)\), per cui assegniamo \(B = \frac13\) ai quarks e \(B = -\frac13\) agli antiquarks. Lo spin \(\frac12\) dei quarks implica poi spin semi-intero per i barioni: \(J = \frac12, J = \frac23\) per gli stati con \(L = 0\).
+
+Ci sono poi 6 flavour
+\[
+\begin{pmatrix}
+u \\ d    
+\end{pmatrix}
+,
+\begin{pmatrix}
+    c \\ s
+\end{pmatrix}
+,
+\begin{pmatrix}
+    t \\ b 
+\end{pmatrix}
+\]
+La prima riga ha carica elettrica \(\frac23\), la seconda \(-\frac13\).
+
+\subsubsection{Paradossi modello a quark}
+\begin{enumerate}
+    \item Perchè non si osservano quark isolati nè stati legati adronici come $qq, \dots$?
+    \item Ci sono problemi nel costruire le funzioni d'onda barioniche: lo stato \(\Delta^{++}\), ad esempio, è costituito da 3 quarks di tipo \(u\) in onda s, quindi con i 3 spin allineati
+    \[
+    \ket{\Delta^{++}, J = \frac32} = \ket{u_{(1)}\uparrow, u_{(2)}\uparrow, u_{(3)}\uparrow}_{l = 0} 
+    \] 
+    Ma i 3 \(u\) sono fermioni identici, per cui avremmo una violazione della Fermi-Dirac. \label{l}
+\end{enumerate}
+Per risolvere \ref*{l}. 
+\end{document}
