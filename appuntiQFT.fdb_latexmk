@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1680011352 "d:/Documenti/Appunti QFT/appuntiQFT.tex" "appuntiQFT.pdf" "appuntiQFT" 1680011354 0
-  "C:/Users/worst/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1677854340 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+["pdflatex"] 1680105128 "d:/Documenti/Appunti QFT/appuntiQFT.tex" "appuntiQFT.pdf" "appuntiQFT" 1680105130 0
+  "C:/Users/worst/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1680095260 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1679931479 11548 45d13782edabdc126eb308b52311b72a ""
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/pk/ljfour/public/bbold/dpi600/bbold10.pk" 1677854347 12432 c39568dae4c2a2c720cf8e1c3f5eb25a ""
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/tfm/public/bbold/bbold10.tfm" 1677854344 788 aa2bfd021367054a224c4cf5a9967398 ""
@@ -103,6 +103,7 @@
   "D:/Program Files (x86)/MiKTeX/tex/latex/caption/caption.sty" 1647508320 54291 b8e5c600d4aa37b48a740dd2a6c26163 ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/caption/caption3.sty" 1647508320 71241 d2cd3a1c5acef9cb31f945b93c0bb6e3 ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/caption/subcaption.sty" 1647508320 11546 6c5257d230d8c5626812b45bc2f31212 ""
+  "D:/Program Files (x86)/MiKTeX/tex/latex/carlisle/slashed.sty" 1522607821 5327 8b3c95b5f71136add36a4a0bb1507594 ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1623003186 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/etoolbox/etoolbox.sty" 1601897756 46845 3b58f70c6e861a13d927bff09d35ecbc ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/geometry/geometry.cfg" 1578057145 1104 7ac475a4e3466b0b43e138e9356bda83 ""
@@ -135,9 +136,9 @@
   "D:/Program Files (x86)/MiKTeX/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044406800 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "appuntiQFT.aux" 1680011354 1648 bd12d4340bbb6ad00c311e35e3b89ea9 "pdflatex"
-  "appuntiQFT.tex" 1680011351 30557 befe7e8f3a1d13c319df57c72ef48ba2 ""
-  "d:/Documenti/Appunti QFT/appuntiQFT.tex" 1680011351 30557 befe7e8f3a1d13c319df57c72ef48ba2 ""
+  "appuntiQFT.aux" 1680105130 1989 83872f2294b685385ea03d6e3dc9ed46 "pdflatex"
+  "appuntiQFT.tex" 1680105127 33805 d974b37565160df7e92209c93b99861c ""
+  "d:/Documenti/Appunti QFT/appuntiQFT.tex" 1680105127 33805 d974b37565160df7e92209c93b99861c ""
   (generated)
   "appuntiQFT.aux"
   "appuntiQFT.log"

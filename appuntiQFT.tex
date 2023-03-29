@@ -14,6 +14,7 @@
 \usepackage{physics}    %notazione braket
 \usepackage{parskip}    %skip tra paragrafi e sostituisce // 
 \usepackage{bbold}      %identità
+\usepackage{slashed}    %operatori di Dirac
 
 
 \newtheorem{thm}{Teo}[section]
@@ -26,6 +27,9 @@
 \newtheorem{definition}{Def}[section]
 \newtheorem{observation}{Oss}[section]
 \newtheorem{example}{Ex}[section]
+
+%Comandi personalizzati
+\newcommand{\lagr}{\mathcal{L}}
 
 
 \title{Appunti}
@@ -872,12 +876,83 @@ La prima riga ha carica elettrica \(\frac23\), la seconda \(-\frac13\).
 
 \subsubsection{Paradossi modello a quark}
 \begin{enumerate}
-    \item Perchè non si osservano quark isolati nè stati legati adronici come $qq, \dots$?
+    \item Perchè non si osservano quark isolati nè stati legati adronici come $qq, \dots$? \label{conf}
     \item Ci sono problemi nel costruire le funzioni d'onda barioniche: lo stato \(\Delta^{++}\), ad esempio, è costituito da 3 quarks di tipo \(u\) in onda s, quindi con i 3 spin allineati
     \[
     \ket{\Delta^{++}, J = \frac32} = \ket{u_{(1)}\uparrow, u_{(2)}\uparrow, u_{(3)}\uparrow}_{l = 0} 
     \] 
     Ma i 3 \(u\) sono fermioni identici, per cui avremmo una violazione della Fermi-Dirac. \label{l}
 \end{enumerate}
-Per risolvere \ref*{l}. 
+Per risolvere \ref*{l}. è stato proposto l'esistenza di un grado di libertà nascosto detto di colore a cui associamo il gruppo $SU(3)$
+
+[Inserire schema flavour-colour]
+
+Quindi 
+\[
+    \ket{\Delta^{++}, J = \frac32} = \frac{1}{\sqrt{3}}\epsilon_{ijk} \ket{u_{(1)}^i\uparrow, u_{(2)}^j\uparrow, u_{(3)}^k\uparrow}_{l = 0} 
+\] 
+con \(i = 1, 2, 3\) indice di colore.
+
+Tale stato risulta essere un singoletto di colore 
+\[
+u^i \to u'\phantom{.}^i = U^i_j u^j,\qquad U^i_j \in SU(3)_{\text{colour}}    
+\]
+Inoltre per una data configurazione di flavour non si osservano partner mesonici con diversi numeri quantici di colore, quindi anche la funzione d'onda mesonica costituisce un singoletto di colore.
+\[
+\ket{M} = \frac{1}{\sqrt{3}}\ket{q^i \bar{q}_i}    
+\]
+Invece stati del tipo $qq, \bar{q}\bar{q}, \dots$ non possono essere resi singoletti di colore in quanto nella decomposizione delle rappresentazioni non compare la 1
+\begin{align*}
+    qq: 3_c \otimes 3_c &= \bar{3}^*_c \oplus 6_c \\
+    \bar{q}\bar{q}: \bar{3}^*_c \otimes \bar{3}^*_c &= 3_c \oplus \bar{6}^*_c
+\end{align*}
+Per risolvere \ref*{conf}. si guarda agli esperimenti da cui segue il postulato del confinamento: \textit{tutti gli stati adronici e le corrispondenti osservabili fisiche sono singoletti di colore}.
+
+\subsubsection{Jet adronici}
+[Vedi note]
+
+\subsection{Derivata covariante}
+Vogliamo rendere $SU(3)_{\text{colore}}$ il gruppo di gauge con cui costruire la derivata covariante.
+
+\section{QED}
+La lagrangiana della QED risulta essere
+\[
+    \lagr = \underbrace{\bar{\psi}(i\slashed{D}- m)\psi}_{\lagr_F} - \underbrace{\frac14 F_{\mu \nu}F^{\mu \nu}}_{\lagr_G}
+\]
+con
+\[
+D_\mu = \partial_\mu + iqA_\mu, \quad F_{\mu \nu} = \partial_\mu A_\nu - \partial_\nu A_\mu    
+\]
+Possiamo poi espandere $\lagr_F$ come
+\begin{alignat*}{3}
+    \lagr_F &= \lagr_0 &&+ \lagr_I \\
+    &= \bar{\psi}(i\slashed{\partial}-m)\psi &&+ (-q\bar{\psi}\slashed{A}\psi)
+\end{alignat*}
+Per trasformazioni di gauge $U(1)$ globali
+\begin{align*}
+    \psi &\to e^{i\frac{q}{e}\theta}\psi \qquad \theta \text{ c.te} \\
+    A_\mu &\to A_\mu
+\end{align*}
+sono invarianti $\lagr_0, \lagr_F, \lagr_G$, mentre per trasformazioni di gauge $U(1)$ locali
+\begin{align*}
+    \psi(x) &\to e^{i\frac{q}{e}\theta(x)}\psi(x)\\
+    A_\mu(x) &\to A_\mu(x) - \frac{1}{e}\partial_\mu\theta(x)
+\end{align*}
+sono invarianti $\lagr_F, \lagr_G$.
+
+In questo caso $D_\mu$ trasforma come $\psi$, infatti è detta derivata covariante
+\begin{align*}
+    D_\mu\psi(x) \to D'_\mu\psi'(x) &= \left(\partial_\mu + iqA'_\mu(x)\right)e^{i\frac{q}{e}\theta(x)}\psi(x) \\
+    &= e^{i\frac{q}{e}\theta(x)}\left(\partial_\mu + i\frac{q}{e}\partial_\mu\theta + iqA_\mu - i\frac{q}{e}\partial_\mu\theta\right)\psi(x) \\
+    &= e^{i\frac{q}{e}\theta(x)}D_\mu\psi(x)    
+\end{align*}
+
+\begin{observation}[$F_{\mu \nu}$ come commutatore delle derivate covarianti]
+    \begin{align*}
+        [D_\mu, D_\nu]\psi &= [\partial_\mu + iqA_\mu, \partial_\nu + iqA_\nu]\psi = iq([\partial_\mu, A_\nu] + [A_\mu, \partial_\nu])\psi \\
+        &= 
+    \end{align*}
+\end{observation}
+
+
 \end{document}
