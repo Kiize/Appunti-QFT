@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1680105128 "d:/Documenti/Appunti QFT/appuntiQFT.tex" "appuntiQFT.pdf" "appuntiQFT" 1680105130 0
+["pdflatex"] 1680180994 "d:/Documenti/Appunti QFT/appuntiQFT.tex" "appuntiQFT.pdf" "appuntiQFT" 1680180996 0
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1680095260 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1679931479 11548 45d13782edabdc126eb308b52311b72a ""
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/pk/ljfour/public/bbold/dpi600/bbold10.pk" 1677854347 12432 c39568dae4c2a2c720cf8e1c3f5eb25a ""
@@ -136,9 +136,9 @@
   "D:/Program Files (x86)/MiKTeX/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044406800 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "appuntiQFT.aux" 1680105130 1989 83872f2294b685385ea03d6e3dc9ed46 "pdflatex"
-  "appuntiQFT.tex" 1680105127 33805 d974b37565160df7e92209c93b99861c ""
-  "d:/Documenti/Appunti QFT/appuntiQFT.tex" 1680105127 33805 d974b37565160df7e92209c93b99861c ""
+  "appuntiQFT.aux" 1680180996 1989 518ec5a9328bcbcad8dd8e5554fe6cfd "pdflatex"
+  "appuntiQFT.tex" 1680180992 36515 9116fde048d11ec1878344cd8179a1f9 ""
+  "d:/Documenti/Appunti QFT/appuntiQFT.tex" 1680180992 36515 9116fde048d11ec1878344cd8179a1f9 ""
   (generated)
   "appuntiQFT.aux"
   "appuntiQFT.log"

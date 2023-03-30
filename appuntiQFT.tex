@@ -912,7 +912,66 @@ Per risolvere \ref*{conf}. si guarda agli esperimenti da cui segue il postulato 
 [Vedi note]
 
 \subsection{Derivata covariante}
-Vogliamo rendere $SU(3)_{\text{colore}}$ il gruppo di gauge con cui costruire la derivata covariante.
+Vogliamo rendere $SU(3)_{\text{colore}}$ il gruppo di gauge con cui costruire la derivata covariante, tuttavia lavoriamo nel caso generico di una teoria di gauge non abeliana $SU(N_c)$, dove $N_c$ sono i campi di colore.
+Abbiamo allora che
+\[
+\lagr_0 = \sum_{i=1}^{N_c}\bar{\psi}_i(i\slashed{\partial} - m)\psi_i = \bar{\psi}(i\slashed{\partial} - m)\psi    
+\]
+con $\psi$ vettore dei campi di colore.
+
+Consideriamo ora una trasformazione di gauge non abeliana
+\begin{align*}
+    \psi &\to \psi' = U\psi \\
+    \bar{\psi} &\to \bar{\psi'} = \bar{\psi}U^\dagger
+\end{align*}
+con $U \in SU(N_c)$. Per trasformazioni locali $U = U(x)$ e 
+\[
+\partial_\mu \psi' = \partial_\mu(U\psi) = U\partial_\mu\psi + \partial_\mu U \psi    
+\]
+quindi
+\[
+i\bar{\psi'}\slashed{\partial}\psi' = i\bar{\psi}\slashed{\partial}\psi + i\bar{\psi}(U^\dagger\slashed{\partial}U)\psi    
+\]
+Possiamo ora pensare di aggiungere un termine di accoppiamento minimale 
+\[
+\bar{\psi}\slashed{A}\psi    
+\]
+con $A_\mu = A_\mu^a T^a$, $A_\mu^a$ campi di gauge.
+
+La lagrangiana fermionica trasformata risulta allora essere
+\[
+\lagr_F' = \bar{\psi'}(i\slashed{\partial} - g\slashed{A}' - m)\psi' = \bar{\psi}(i\slashed{\partial} - m)\psi + \bar{\psi}(iU^\dagger\slashed{\partial}U - gU^\dagger\slashed{A}'U))\psi    
+\]
+Se ora imponiamo che $\lagr_F' = \lagr_F$ si ha che
+\[
+-g\slashed{A} = iU^\dagger\slashed{\partial}U - gU\dagger\slashed{A}'U    
+\]
+cioè
+\[
+    gU\dagger\slashed{A}'U = iU^\dagger\slashed{\partial}U + g\slashed{A}
+\]
+che in componenti si scrive
+\[
+A_\mu' = UA_\mu U^\dagger + \frac{i}{g}(\partial_\mu)U^\dagger    
+\]
+Possiamo allora definire una derivata covariante
+\[
+D_\mu \psi = (\partial_\mu + igA_\mu)\psi    
+\]
+che sotto gauge trasforma appunto in maniera covariante, cioè
+\[
+D_\mu \psi \to UD_\mu\psi    
+\]
+In analogia a quanto fatto per la QED svolgiamo il commutatore delle derivate covarianti per trovare il tensore energia-impulso della teoria
+\[
+[D_\mu, D_\nu]\psi = ig(\partial_\mu A_\nu - \partial_\nu A_\mu + ig[A_\mu, A_\nu])\psi \equiv ig F_{\mu\nu}\psi    
+\]
+che in componenti si scrive 
+\begin{align*}
+    F_{\mu\nu} &= F_{\mu\nu}^a T^a = (\partial_\mu A_\nu^a - \partial_\nu A_\mu^a)T^a + ig[T^b, T^c]A_\mu^b A_\nu^c \\
+&= (\partial_\mu A_\nu^a - \partial_\nu A_\mu^a - gf_{abc}A_\mu^b A_\nu^c)T^a 
+\end{align*}
+
 
 \section{QED}
 La lagrangiana della QED risulta essere
@@ -950,8 +1009,12 @@ In questo caso $D_\mu$ trasforma come $\psi$, infatti è detta derivata covarian
 \begin{observation}[$F_{\mu \nu}$ come commutatore delle derivate covarianti]
     \begin{align*}
         [D_\mu, D_\nu]\psi &= [\partial_\mu + iqA_\mu, \partial_\nu + iqA_\nu]\psi = iq([\partial_\mu, A_\nu] + [A_\mu, \partial_\nu])\psi \\
-        &= 
+        &= iq \left(\partial_\mu(A_\nu \psi) - A_\nu\partial_\mu\psi + A_\mu\partial_\nu\psi - \partial_\nu(A_\mu\psi)\right) \\
+        &= iq (\partial_\mu A_\nu \psi + A_\nu \partial_\mu \psi - A_\nu\partial_\mu\psi - (\mu \leftrightarrow \nu )) \\
+        &= iq (\partial_\mu A_\nu - \partial_\nu A_\mu)\psi \\
+        &= iq F_{\mu \nu}\psi
     \end{align*}
+In questo caso il commutatore tra i campi di gauge è nullo perchè gli $A_\mu$ sono numeri.
 \end{observation}
 
 
