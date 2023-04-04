@@ -15,7 +15,14 @@
 \usepackage{parskip}    %skip tra paragrafi e sostituisce // 
 \usepackage{bbold}      %identità
 \usepackage{slashed}    %operatori di Dirac
+\usepackage{hyperref}   %references
 
+\hypersetup{
+    colorlinks = true,
+    linkcolor = blue,
+    urlcolor = red,
+    pdftitle = QFT notes by VG 
+}
 
 \newtheorem{thm}{Teo}[section]
 \newtheorem{prop}{Prop}[section]
@@ -29,15 +36,19 @@
 \newtheorem{example}{Ex}[section]
 
 %Comandi personalizzati
-\newcommand{\lagr}{\mathcal{L}}
+\newcommand{\lagr}{\mathcal{L}} %Lagrangiana
+\newcommand{\id}{\mathbb{1}}
 
 
 \title{Appunti}
 \author{VG}
 \date{December 2022}
 
+
+
 \begin{document}
 \maketitle
+\tableofcontents
 
 \section{Rottura spontanea di simmetria}
 
@@ -844,6 +855,52 @@ Se ciò non è possibile il tensore T è irriducibile.
     Il tensore irriducibile $(q, p)$ trasforma come il complesso coniugato del tensore irriducibile $(p, q)$.
 \end{observation}
 
+
+\section{QED}
+La lagrangiana della QED risulta essere
+\[
+    \lagr = \underbrace{\bar{\psi}(i\slashed{D}- m)\psi}_{\lagr_F} - \underbrace{\frac14 F_{\mu \nu}F^{\mu \nu}}_{\lagr_G}
+\]
+con
+\[
+D_\mu = \partial_\mu + iqA_\mu, \quad F_{\mu \nu} = \partial_\mu A_\nu - \partial_\nu A_\mu    
+\]
+Possiamo poi espandere $\lagr_F$ come
+\begin{alignat*}{3}
+    \lagr_F &= \lagr_0 &&+ \lagr_I \\
+    &= \bar{\psi}(i\slashed{\partial}-m)\psi &&+ (-q\bar{\psi}\slashed{A}\psi)
+\end{alignat*}
+Per trasformazioni di gauge $U(1)$ globali
+\begin{align*}
+    \psi &\to e^{i\frac{q}{e}\theta}\psi \qquad \theta \text{ c.te} \\
+    A_\mu &\to A_\mu
+\end{align*}
+sono invarianti $\lagr_0, \lagr_F, \lagr_G$, mentre per trasformazioni di gauge $U(1)$ locali
+\begin{align*}
+    \psi(x) &\to e^{i\frac{q}{e}\theta(x)}\psi(x)\\
+    A_\mu(x) &\to A_\mu(x) - \frac{1}{e}\partial_\mu\theta(x)
+\end{align*}
+sono invarianti $\lagr_F, \lagr_G$.
+
+In questo caso $D_\mu$ trasforma come $\psi$, infatti è detta derivata covariante
+\begin{align*}
+    D_\mu\psi(x) \to D'_\mu\psi'(x) &= \left(\partial_\mu + iqA'_\mu(x)\right)e^{i\frac{q}{e}\theta(x)}\psi(x) \\
+    &= e^{i\frac{q}{e}\theta(x)}\left(\partial_\mu + i\frac{q}{e}\partial_\mu\theta + iqA_\mu - i\frac{q}{e}\partial_\mu\theta\right)\psi(x) \\
+    &= e^{i\frac{q}{e}\theta(x)}D_\mu\psi(x)    
+\end{align*}
+
+\begin{observation}[$F_{\mu \nu}$ come commutatore delle derivate covarianti]
+    \begin{align*}
+        [D_\mu, D_\nu]\psi &= [\partial_\mu + iqA_\mu, \partial_\nu + iqA_\nu]\psi = iq([\partial_\mu, A_\nu] + [A_\mu, \partial_\nu])\psi \\
+        &= iq \left(\partial_\mu(A_\nu \psi) - A_\nu\partial_\mu\psi + A_\mu\partial_\nu\psi - \partial_\nu(A_\mu\psi)\right) \\
+        &= iq (\partial_\mu A_\nu \psi + A_\nu \partial_\mu \psi - A_\nu\partial_\mu\psi - (\mu \leftrightarrow \nu )) \\
+        &= iq (\partial_\mu A_\nu - \partial_\nu A_\mu)\psi \\
+        &= iq F_{\mu \nu}\psi
+    \end{align*}
+In questo caso il commutatore tra i campi di gauge è nullo perchè gli $A_\mu$ sono numeri.
+\end{observation}
+
+
 \section{QCD}
 \subsection{Modello a quark di Gell-mann \& Zweig}
 Si osserva che i mesoni più leggeri, con \(J^p = 0^-, J^p = 1^-\), occupano entrambi ottetti e singoletti di \(SU(3)\), mentre i barioni più leggeri, con \(J^p = \frac12^+, J^p=\frac32^+\), occupano ottetti e decupletti di \(SU(3)\).
@@ -883,7 +940,7 @@ La prima riga ha carica elettrica \(\frac23\), la seconda \(-\frac13\).
     \] 
     Ma i 3 \(u\) sono fermioni identici, per cui avremmo una violazione della Fermi-Dirac. \label{l}
 \end{enumerate}
-Per risolvere \ref*{l}. è stato proposto l'esistenza di un grado di libertà nascosto detto di colore a cui associamo il gruppo $SU(3)$
+Per risolvere \ref{l}. è stato proposto l'esistenza di un grado di libertà nascosto detto di colore a cui associamo il gruppo $SU(3)$
 
 [Inserire schema flavour-colour]
 
@@ -906,7 +963,7 @@ Invece stati del tipo $qq, \bar{q}\bar{q}, \dots$ non possono essere resi singol
     qq: 3_c \otimes 3_c &= \bar{3}^*_c \oplus 6_c \\
     \bar{q}\bar{q}: \bar{3}^*_c \otimes \bar{3}^*_c &= 3_c \oplus \bar{6}^*_c
 \end{align*}
-Per risolvere \ref*{conf}. si guarda agli esperimenti da cui segue il postulato del confinamento: \textit{tutti gli stati adronici e le corrispondenti osservabili fisiche sono singoletti di colore}.
+Per risolvere \ref{conf}. si guarda agli esperimenti da cui segue il postulato del confinamento: \textit{tutti gli stati adronici e le corrispondenti osservabili fisiche sono singoletti di colore}.
 
 \subsubsection{Jet adronici}
 [Vedi note]
@@ -972,50 +1029,151 @@ che in componenti si scrive
 &= (\partial_\mu A_\nu^a - \partial_\nu A_\mu^a - gf_{abc}A_\mu^b A_\nu^c)T^a 
 \end{align*}
 
-
-\section{QED}
-La lagrangiana della QED risulta essere
+Consideriamo ora una trasformazione di gauge infinitesima $U(x) = \exp(i \theta^a T^a) \simeq \id + i\theta^a T^a $, in questo caso 
 \[
-    \lagr = \underbrace{\bar{\psi}(i\slashed{D}- m)\psi}_{\lagr_F} - \underbrace{\frac14 F_{\mu \nu}F^{\mu \nu}}_{\lagr_G}
-\]
-con
+A_\mu' = UA_\mu U^\dagger + \frac{i}{g}(\partial_\mu U)U^\dagger \simeq (A_\mu^a - f_{abc}\theta^b A_\mu^c - \frac{1}{g}\partial_\mu\theta^a)T^a    
+\] 
+cioè
 \[
-D_\mu = \partial_\mu + iqA_\mu, \quad F_{\mu \nu} = \partial_\mu A_\nu - \partial_\nu A_\mu    
+\delta A_\mu^a  = A_\mu' - A_\mu = -f_{abc}\theta^b A_\mu^c\phantom{.}\footnote{Indica che $A_\mu^a$ trasforma secondo la rappresentazione aggiunta di $SU(N_c)$} - \frac{1}{g}\partial_\mu\theta^a   
 \]
-Possiamo poi espandere $\lagr_F$ come
-\begin{alignat*}{3}
-    \lagr_F &= \lagr_0 &&+ \lagr_I \\
-    &= \bar{\psi}(i\slashed{\partial}-m)\psi &&+ (-q\bar{\psi}\slashed{A}\psi)
-\end{alignat*}
-Per trasformazioni di gauge $U(1)$ globali
+Il campo, invece, trasforma secondo la rappresentazione fondamentale di $SU(N_c)$
+\[
+\psi' = U\psi \simeq (1 + i\theta^a T^a)\psi    
+\]
+\[
+\Rightarrow \delta\psi = \psi' - \psi = i\theta^a T^a \psi    
+\]
+Infine l'intensità di campo trasforma come
 \begin{align*}
-    \psi &\to e^{i\frac{q}{e}\theta}\psi \qquad \theta \text{ c.te} \\
-    A_\mu &\to A_\mu
+    F'_{\mu \nu} &= U F_{\mu\nu} U^\dagger = U T^a U^\dagger F_{\mu\nu}^a \\
+    &\simeq (1 + i\theta^b T^b)T^a (1 - i\theta^c T^c)F_{\mu\nu}^a \\
+    &= (T^a + i \theta^b [T^b, T^a])F_{\mu\nu}^a \\
+    &= (T^a - i\theta^b if_{abc}T^c)F_{\mu\nu}^a \\
+    &= T^a (F_{\mu\nu}^a + \theta^b f_{cba}F_{\mu\nu}^c) 
 \end{align*}
-sono invarianti $\lagr_0, \lagr_F, \lagr_G$, mentre per trasformazioni di gauge $U(1)$ locali
-\begin{align*}
-    \psi(x) &\to e^{i\frac{q}{e}\theta(x)}\psi(x)\\
-    A_\mu(x) &\to A_\mu(x) - \frac{1}{e}\partial_\mu\theta(x)
-\end{align*}
-sono invarianti $\lagr_F, \lagr_G$.
+cioè
+\[
+\delta F_{\mu\nu}^a = F'^a_{\mu\nu} - F_{\mu\nu}^a = -f_{abc}\theta^b F_{\mu\nu}^c     
+\]
+quindi il tensore dei campi trasforma secondo la rappresentazione aggiunta di $SU(N_c)$ anche per $\theta$ non costanti.
 
-In questo caso $D_\mu$ trasforma come $\psi$, infatti è detta derivata covariante
-\begin{align*}
-    D_\mu\psi(x) \to D'_\mu\psi'(x) &= \left(\partial_\mu + iqA'_\mu(x)\right)e^{i\frac{q}{e}\theta(x)}\psi(x) \\
-    &= e^{i\frac{q}{e}\theta(x)}\left(\partial_\mu + i\frac{q}{e}\partial_\mu\theta + iqA_\mu - i\frac{q}{e}\partial_\mu\theta\right)\psi(x) \\
-    &= e^{i\frac{q}{e}\theta(x)}D_\mu\psi(x)    
-\end{align*}
+Risulta allora che \(F_{\mu\nu}^a F^{\mu\nu,a}\) è invariante di gauge, infatti
+\[
+\delta(F_{\mu\nu}^a F^{\mu\nu,a}) = 2 F^{\mu\nu,a} \delta F_{\mu\nu}^a = -2\underbrace{f_{abc}}_{\text{asym}}\theta^b \underbrace{F^{\mu\nu,a}F_{\mu\nu}^c}_{\text{sym } a \leftrightarrow c} = 0     
+\]
+Inoltre usando 
+\[
+\tr [T_a T_b] = \frac12 \delta_{ab}    
+\]
+si ha che
+\[
+    F_{\mu\nu}^a F^{\mu\nu,a} = 2 \tr[F_{\mu\nu}F^{\mu\nu}]    
+\]
+che è una quantità gauge invariante per ciclicità della traccia.
 
-\begin{observation}[$F_{\mu \nu}$ come commutatore delle derivate covarianti]
-    \begin{align*}
-        [D_\mu, D_\nu]\psi &= [\partial_\mu + iqA_\mu, \partial_\nu + iqA_\nu]\psi = iq([\partial_\mu, A_\nu] + [A_\mu, \partial_\nu])\psi \\
-        &= iq \left(\partial_\mu(A_\nu \psi) - A_\nu\partial_\mu\psi + A_\mu\partial_\nu\psi - \partial_\nu(A_\mu\psi)\right) \\
-        &= iq (\partial_\mu A_\nu \psi + A_\nu \partial_\mu \psi - A_\nu\partial_\mu\psi - (\mu \leftrightarrow \nu )) \\
-        &= iq (\partial_\mu A_\nu - \partial_\nu A_\mu)\psi \\
-        &= iq F_{\mu \nu}\psi
-    \end{align*}
-In questo caso il commutatore tra i campi di gauge è nullo perchè gli $A_\mu$ sono numeri.
+\subsubsection{Trasporto parallelo}
+\begin{definition}[Trasporto parallelo]
+    Il Trasporto parallelo di un vettore $\psi \in V_x$ lungo una curva \(C_{y \leftarrow x}\) da $x$ ad $y$, definita come
+    \[
+        C_{y \leftarrow x}:\, z^\mu(s), \, s \in [0,1] \text{ t.c. } z^\mu(0) = x, z^\mu(1) = y
+    \]
+    è un operatore (o matrice) \(W (C_{y \leftarrow x}) \in SU(N_c)\) che opera una trasformazione da $V_x$ a $V_y$
+    \[
+    W(C_{y \leftarrow x}):V_x \to V_y    
+    \]
+    Il vettore \(\tilde{\psi} = W(C_{y \leftarrow x})\psi(x) \in V_y\) viene definito come il vettore $\psi(x)$ trasportato parallelamente.
+
+    I trasporti paralleli devono inoltre soddisfare le seguenti proprietà:
+    \begin{enumerate}
+        \item \(W(\emptyset) = \id\), con $\emptyset$ curva di lunghezza nulla
+        \item \(W(C_2 \circ C_1) = W(C_2)W(C_1)\) \label{comp}
+        \item \(W(-C) = W(C)^{-1}\)
+        \item Sotto gauge locale \label{tr par}
+        \begin{align*}
+            \psi(x) &\to U(x)\psi(x) \\
+            \psi(y) &\to U(y)\psi(y) \\
+        \end{align*}
+        W trasforma come
+        \[
+            W(C_{y \leftarrow x}) \to U(y)W(C_{y \leftarrow x})U(x)^{-1}    
+            \]
+        \end{enumerate}
+\end{definition}
+Consideriamo ora un percorso infinitesimo
+\[
+C \equiv C_{x + dx \leftarrow x}    
+\]
+Al prim'ordine in $dx$ il trasporto parallelo è
+\[
+W(C) \simeq \exp(-igA_\mu(x)dx^\mu) \simeq 1 - igA_\mu dx^\mu 
+\]
+con \(A_\mu(x) \in \mathfrak{su}(N_c)\) algebra del gruppo.
+
+Determiniamo ora come trasforma il campo di gauge $A_\mu$.
+\begin{align*}
+W'(C) &= \id -  igA'_\mu dx^\mu = U(x + dx)W(C)U(x)^{-1} = U(x + dx)(\id - igA_\mu dx^\mu)U(x)^{-1} \\
+&= U(x + dx)U(x)^{-1} - igU(x + dx)A_\mu U(x)^{-1}dx^{\mu}    
+\end{align*}
+Espandendo ora al prim'ordine $U(x + dx)$ si ottiene
+\begin{align*}
+    W'(C) &= (U(x) + \partial_\mu U(x)dx^\mu)U(x)^{-1} - igU(x)A_\mu U(x)^{-1}dx^\mu \\
+    &= \id - ig [UA_\mu U^{-1} + \frac{i}{g} (\partial_\mu U)U^{-1}]dx^\mu
+\end{align*}
+quindi
+\[
+A'_\mu(x) = U(x)A_\mu(x)U(x)^{-1} + \frac{i}{g}(\partial_\mu U(x))U(x)^{-1}    
+\]
+
+\begin{observation}
+    Vale anche il viceversa, cioè se si assume la trasformazione dei campi si ottiene la \ref{tr par}.
 \end{observation}
 
+Possiamo ora definire il differenziale covariante di $\psi(x)$
+\begin{align*}
+    D\psi(x) &= W(C_{x \leftarrow x + dx})\psi(x + dx) - \psi(x) \\
+    &= W(C_{x + dx \leftarrow x})^{-1} \psi(x + dx) - \psi(x) \\
+    &= (1 + igA_\mu dx^\mu)\psi(x + dx) - \psi(x) \\
+    &= (\psi(x + dx) - \psi(x)) + +igA_\mu(x)\psi(x + dx)dx^\mu \\
+    &= (\partial_\mu \psi(x) + igA_\mu (x)\psi(x))dx^\mu = D_\mu \psi(x)dx^\mu
+\end{align*}
+Per costruzione il differenziale covariante trasforma in maniera covariante.
 
+Assegnato ora il campo di gauge $A_\mu$ mostriamo come ricostruire il trasporto parallelo per una curva qualsiasi. Sia
+\[
+C_\tau: z^\mu(s),\,s\in [0, \tau]
+\]
+e facciamo variare il punto finale, cioè consideriamo $C_{\tau + d\tau}$. Poichè
+\[
+z^\mu(\tau + d\tau) = z^\mu(\tau) + \dv{z^\mu}{\tau} d\tau    
+\]
+possiamo scrivere usando \ref{comp}.
+\[
+    W(C_{\tau + d\tau}) = W(C_{z + \dv{z}{\tau}\leftarrow z})W(C_\tau) = (\id - igA_\mu(z(\tau)) \dv{z^\mu(\tau)}{\tau}d\tau)W(C_\tau)
+\]
+Quindi
+\[
+W(C_{\tau + d\tau}) - W(C_\tau) = -igA_\mu \dv{z^\mu}{\tau}d\tau W(C_\tau)    
+\]
+\[
+\Rightarrow \dv{W(C_\tau)}{\tau} = -igA_\mu\dv{z^\mu}{\tau}W(C_\tau)    
+\]
+Usando la chain rule si ha che
+\[
+\dv{W(C_\tau)}{\tau} = \dv{z^\mu}{\tau} \pdv{W(C_\tau)}{z^\mu}    
+\]
+da cui otteniamo
+\[
+\dv{z^\mu}{\tau}\left[\pdv{z^\mu} + igA_\mu\right]W(C_\tau)=0    
+\]
+cioè
+\[
+    \dv{z^\mu}{\tau}D_\mu W(C_\tau) = 0
+\]
+
+La soluzione dell'equazione con condizione al contorno $W(C_0) = \id$ è data dalla formula di Dyson
+\[
+W(C_\tau) = P \exp\left(-ig \int_{C_\tau}A_\mu(z)dz^\mu \right)    
+\]
+con $P$ path-ordering.
 \end{document}
