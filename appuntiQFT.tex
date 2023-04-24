@@ -49,6 +49,141 @@
 \begin{document}
 \maketitle
 \tableofcontents
+\section{Funzionale generatore}
+Partiamo dal caso semplice di una teoria di campo scalare neutro auto-interagente e definiamo le quantità che ci saranno utili in generale.
+
+Consideriamo allora
+\[
+\lagr = \frac12 \partial_\mu\phi\partial^\mu\phi - \frac12 m^2 \phi^2 - V(\phi) = \lagr_0 - V(\phi)
+\]
+Si ha che la funzione di correlazione ad n punti è
+\[
+G_n (x_1, \dots, x_n) \equiv \ev**{T\{\hat{\phi}(x_1)\dots\hat{\phi}(x_n)\}}{\Omega} = \frac{\int\,D\phi\,e^{i \int \,d^4x\lagr(x)}\phi(x_1)\dots\phi(x_n)}{\int\,D\phi\,e^{i \int \,d^4x\lagr(x)}}
+\]
+\begin{definition}[Funzionale generatore]
+    E' conveniente definire il funzionale generatore 
+    \[
+    Z[J] = \int D\phi\, e^{i \int d^4x\, (\lagr(x) + J(x)\phi(x))}    
+    \]
+\end{definition}
+da cui risulta che 
+\[
+G_n(x_1, \dots, x_n) = \frac{(-i)^n}{Z[0]} \fdv{J(x_1)}\dots\fdv{J(x_n)}\eval{Z[J]}_{J = 0}    
+\]
+Possiamo poi sviluppare il funzionale generatore in potenze dell'interazione $V(\phi)$
+\begin{align*}
+    Z[J] &= \int D\phi\,e^{-i\int d^4x\,V(\phi)}e^{i \int d^4x \, (\lagr_0(x) + J(x)\phi(x))} \\
+    &= e^{-i\int d^4x\,V\left(-i \fdv{J(x)}\right)} Z_0[J] \\
+    &= \sum_{n = 0}^{\infty}\frac{(-i)^n}{n!}\left(\int d^4x\,V\left(-i\fdv{J(x)}\right)\right)^n Z_0[J]
+\end{align*}
+dove si è usato che
+\[
+\fdv{Z[J]}{J(x)} = \phi(x) Z[J]    
+\]
+$Z_0[J]$ è poi il funzionale generatore della teoria libera, che essendo un integrale di tipo gaussiano può essere facilmente calcolato. Possiamo infatti integrare per parti l'esponente ed ottenere
+\begin{align*}
+    Z_0[J] &= \int D\phi\,\exp\left(-\frac{i}{2}\int d^4x\,\phi(x)(\partial_\mu\partial^\mu + m^2)\phi(x) + i\int d^4x\, J(x)\phi(x)\right)  \\
+    &= \int D\phi\, \exp\left( -\frac{i}{2} d^4x d^4y\, \phi(x)K(x, y)\phi(y) + i\int d^4x J(x)\phi(x) \right)
+\end{align*}
+con $K(x, y) \equiv \delta^4(x-y)(\square_x + m^2)$. Usando ora i risultati per gli integrali gaussiani otteniamo che
+\[
+Z_0[J] = \frac{1}{\sqrt{\det\left(\frac{A}{2\pi}\right)}}e^{\frac{i}{2}J^t K^{-1}J}    
+\]
+\begin{example}
+    Calcoliamo il propagatore per la teoria di un campo scalare neutro libero
+    \[
+    G_2(x, y) \equiv \ev**{T\{\phi(x)\phi(y)\}}{0} = \frac{(-i)^2}{Z_0[J]}\fdv{J(x)}\fdv{J(y)}\eval{Z[J]}_{J=0}    
+    \]
+    Calcoliamo ora la derivata in notazione discreta \(J(x) \to J_i\)
+    \[
+    Z_0[J] = Z_0[0]e^{\frac{i}{2}J_m(K^{-1})_{mn}J_n}    
+    \]
+    \[
+        \Rightarrow \pdv{Z_0[J]}{J_i} = \frac12  \left((iK^{-1})_{in}J_n + J_m(iK^{-1})_{mi} \right)Z_0[J] = (iK^{-1})_{in}J_nZ_0[J]
+    \]
+    dove abbiamo usato il fatto che se $K$ è simmetrica allora anche $K^{-1}$ lo è. Quindi
+    \[
+    G_2(x, y) = -i K^{-1}(x, y)    
+    \]
+    con $K^{-1}$ definito nel modo seguente
+    \[
+    (\square_x + m^2)K^{-1}(x,y) = \delta^4(x - y)    
+    \]
+    La seguente equazione si può risolvere passando in trasformata di Fourier ed usando la prescrizione $i\epsilon$. Otteniamo così che
+    \[
+    \tilde{K}^{-1}(k) = \frac{1}{m^2 - k^2 - i\epsilon}    
+    \]
+\end{example}
+\section{Path integral per campi fermionici}
+\subsection{Algebra di Grassmann}
+Delle variabili $\eta_1,\dots, \eta_N$ generano un'algebra di Grassmann se
+\[
+\{\eta_i, \eta_j\} = 0\quad \forall i, j    
+\]
+In particolare si osserva che $\eta_i^2 = 0$.
+\subsubsection{Regole di integrazione per variabili di Grassmann}
+\begin{prop}
+    \[
+    \int d\eta_i = 0 \qquad \int d\eta_i\, \eta_i = 1    
+    \]
+    con
+    \[
+       \{d\eta_i, d\eta_j\} = \{d\eta_i, \eta_j\} = 0 \qquad \forall i, j 
+    \]
+\end{prop}
+Il più generale elemento $f(\eta)$ di un'algebra di Grassmann è del tipo
+\[
+f(\eta) = f_0 + \eta_i f_i + \eta_i \eta_j f_{ij} + \dots + \eta_N \dots \eta_1 f_{1 \dots N }    
+\]
+Allora
+\[
+\int \prod_i d\eta_i \, f(\eta) = f_{1 \dots N}    
+\]
+\begin{prop}
+    L'integrazione così definita gode dell'invarianza per traslazioni
+    \[
+    \int \prod_i d\eta_i \, f(\eta + a) = \int \prod_i d\eta_i'\, f(\eta') = f_{1 \dots N}     
+    \]
+\end{prop}
+
+\begin{example}[Integrale gaussiano fermionico]
+    Consideriamo un set di variabili di Grassmann del tipo
+    \[
+    \{\eta_1, \dots, \eta_N, \eta_{N + 1}, \dots, \eta_{2N}\} = \{\psi_1, \dots, \psi_N, \bar{\psi}_1, \dots, \bar{\psi}_N\}    
+    \]
+    E vogliamo calcolare
+    \[
+    I(A) \equiv \int [d\bar{\psi}d\psi]\, e^{-\bar{\psi}_i A_{ij}\psi_j}     
+    \]
+    dove 
+    \[
+        [d\bar{\psi}d\psi] = \prod_i d\bar{\psi}_i d\psi_i   
+    \]
+    e A invertibile. Si trova allora che
+    \[
+    I(A) = \det A    
+    \]
+\end{example}
+
+\begin{example}[Funzionale generatore fermionico]
+    Consideriamo il seguente funzionale generatore 
+    \[
+    Z[\rho, \bar{\rho}] = \int [d\bar{\psi}d\psi] \, e^{-\bar{\psi}_i A_{ij}\psi_j + \bar{\psi}_i \rho_i + \bar{\rho}_i \psi_i}    
+    \]
+    dove le sorgenti $\rho, \bar{\rho}$ sono anch'esse variabili di Grassmann anticommutanti con le $\psi, \bar{\psi}$.
+
+    Svolgendo l'integrale si trova che
+    \[
+    Z[\rho, \bar{\rho}] = \det A e^{\bar{\rho}_i (A^{-1})_{ij}\rho_j}    
+    \]
+\end{example}  
+
+\subsubsection{Regole di derivazione per le variabili di Grassmann}
+\begin{enumerate}
+    \item Se $f(\eta)$ non dipende da $\eta_i$ allora 
+\end{enumerate}
+
+
 
 \section{Rottura spontanea di simmetria}
 

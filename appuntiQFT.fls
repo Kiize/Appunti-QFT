@@ -917,13 +917,13 @@ INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 OUTPUT c:/Users/worst/Documents/GitHub/Appunti-QFT/appuntiQFT.toc
+INPUT c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
-INPUT c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
-INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT c:/texlive/2021/texmf-dist/tex/latex/bbold/Ubbold.fd
 INPUT c:/texlive/2021/texmf-dist/tex/latex/bbold/Ubbold.fd
 INPUT c:/texlive/2021/texmf-dist/tex/latex/bbold/Ubbold.fd
@@ -952,6 +952,7 @@ INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
