@@ -5,19 +5,19 @@
 \contentsline {subsection}{\numberline {2.1}Algebra di Grassmann}{2}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Regole di integrazione per variabili di Grassmann}{3}{subsubsection.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.2}Regole di derivazione per le variabili di Grassmann}{3}{subsubsection.2.1.2}%
-\contentsline {section}{\numberline {3}Rottura spontanea di simmetria}{3}{section.3}%
-\contentsline {section}{\numberline {4}Gruppi di Lie}{5}{section.4}%
+\contentsline {section}{\numberline {3}Rottura spontanea di simmetria}{4}{section.3}%
+\contentsline {section}{\numberline {4}Gruppi di Lie}{6}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Algebra di Lie}{6}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Rappresentazioni di $SU(N)$}{7}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Rappresentazioni di $SU(2)$}{9}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.2}Rappresentazioni di $SU(N)$}{8}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Rappresentazioni di $SU(2)$}{10}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Rappresentazioni irriducibili di $SU(3)$}{10}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Rappresentazione complessa coniugata}{11}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Metodo tensoriale}{12}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Tensori di $SU(3)$}{12}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.7}Tensori di $SU(3)$}{13}{subsection.4.7}%
 \contentsline {section}{\numberline {5}QED}{14}{section.5}%
-\contentsline {section}{\numberline {6}QCD}{14}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Modello a quark di Gell-mann \& Zweig}{14}{subsection.6.1}%
+\contentsline {section}{\numberline {6}QCD}{15}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Modello a quark di Gell-mann \& Zweig}{15}{subsection.6.1}%
 \contentsline {subsubsection}{\numberline {6.1.1}Paradossi modello a quark}{15}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Jet adronici}{15}{subsubsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.2}Derivata covariante}{15}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.1.2}Jet adronici}{16}{subsubsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.2}Derivata covariante}{16}{subsection.6.2}%
 \contentsline {subsubsection}{\numberline {6.2.1}Trasporto parallelo}{17}{subsubsection.6.2.1}%

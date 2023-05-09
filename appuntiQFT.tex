@@ -181,7 +181,19 @@ Allora
 \subsubsection{Regole di derivazione per le variabili di Grassmann}
 \begin{enumerate}
     \item Se $f(\eta)$ non dipende da $\eta_i$ allora 
+    \[
+    \pdv{\eta_i}f(\eta) = f(\eta)\overleftarrow{\pdv{\eta_i}}=0    
+    \]
+    \item Se $\eta_i$ compare una sola volta in un certo prodotto di termini, allora 
+    \begin{align*}
+        \pdv{\eta_i}(\eta_i R) &= R \\
+        (L \eta_i)\overleftarrow{\pdv{\eta_i}} = L 
+    \end{align*}
 \end{enumerate}
+Utilizzando le nozioni di derivata destra e sinistra appena introdotte possiamo definite le funzioni di correlazioni fermioniche
+\[
+\left< \psi_{i_1} \dots \psi_{i_l} \bar{\psi}_{j_1} \dots \bar{\psi}_{j_l} \right> = \frac{1}{Z[0, 0]}\left[\pdv{\bar{\rho}_{i_1}} \dots \pdv{\bar{\rho}_{i_l}} Z[\rho, \bar{\rho}] \overleftarrow{\pdv{\rho_{j_1}}} \dots \overleftarrow{\pdv{\rho_{j_l}}}\right]_{\rho = \bar{\rho} = 0}  
+\]
 
 
 
@@ -1140,11 +1152,11 @@ Se ora imponiamo che $\lagr_F' = \lagr_F$ si ha che
 \]
 cioè
 \[
-    gU\dagger\slashed{A}'U = iU^\dagger\slashed{\partial}U + g\slashed{A}
+    gU^\dagger\slashed{A}'U = iU^\dagger\slashed{\partial}U + g\slashed{A}
 \]
 che in componenti si scrive
 \[
-A_\mu' = UA_\mu U^\dagger + \frac{i}{g}(\partial_\mu)U^\dagger    
+A_\mu' = UA_\mu U^\dagger + \frac{i}{g}(\partial_\mu U)U^\dagger    
 \]
 Possiamo allora definire una derivata covariante
 \[
