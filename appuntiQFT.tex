@@ -190,10 +190,13 @@ Allora
         (L \eta_i)\overleftarrow{\pdv{\eta_i}} = L 
     \end{align*}
 \end{enumerate}
-Utilizzando le nozioni di derivata destra e sinistra appena introdotte possiamo definite le funzioni di correlazioni fermioniche
+Utilizzando le nozioni di derivata destra e sinistra appena introdotte possiamo definire le funzioni di correlazioni fermioniche
 \[
 \left< \psi_{i_1} \dots \psi_{i_l} \bar{\psi}_{j_1} \dots \bar{\psi}_{j_l} \right> = \frac{1}{Z[0, 0]}\left[\pdv{\bar{\rho}_{i_1}} \dots \pdv{\bar{\rho}_{i_l}} Z[\rho, \bar{\rho}] \overleftarrow{\pdv{\rho_{j_1}}} \dots \overleftarrow{\pdv{\rho_{j_l}}}\right]_{\rho = \bar{\rho} = 0}  
 \]
+\begin{observation}
+    Le funzioni di correlazione del tipo $\left< \psi_{i_1} \dots \psi_{i_l} \bar{\psi}_{j_1} \dots \bar{\psi}_{j_q} \right>$ con $l \neq q$ si annullano
+\end{observation}
 
 
 
@@ -1002,7 +1005,6 @@ Se ciò non è possibile il tensore T è irriducibile.
     Il tensore irriducibile $(q, p)$ trasforma come il complesso coniugato del tensore irriducibile $(p, q)$.
 \end{observation}
 
-
 \section{QED}
 La lagrangiana della QED risulta essere
 \[
@@ -1047,6 +1049,40 @@ In questo caso $D_\mu$ trasforma come $\psi$, infatti è detta derivata covarian
 In questo caso il commutatore tra i campi di gauge è nullo perchè gli $A_\mu$ sono numeri.
 \end{observation}
 
+\subsection{Quantizzazione teorie di gauge}
+Se consideriamo una lagrangiana del tipo
+\[
+\lagr = -\frac14 F_{\mu\nu}F^{\mu\nu}    
+\]
+con $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$, il momento coniugato ad $A_\mu$ è 
+\[
+\pi_\mu = \pdv{\lagr}{\dot{A}_\mu} = -F_{0\mu}    
+\]
+Dalle relazioni di commutazione dovremmo avere 
+\[
+[A^{\mu}(x), \pi_\nu(y)] = i\delta^\mu_\nu \delta^4(x - y)    
+\]
+tuttavia $\pi_0 = 0$.
+
+Per risolvere il problema dobbiamo fissare una gauge.
+
+\begin{example}[Propagatore del fotone]
+    Vediamo fisicamente come si traduce questo problema e per farlo calcoliamo il propagatore del fotone o meglio mostriamo che non si può definire.
+    \begin{align*}
+    S[A] = \int \lagr[A] &= -\frac14 \int (\partial_\mu A_\nu - \partial_\nu A_\mu)(\partial^\mu A^\nu - \partial^\nu A^\mu)      \\
+    &= -\frac12 \int [(\partial_\nu A_\mu)(\partial^\nu A^\mu) - (\partial_\nu A_\mu)(\partial^\mu A^\nu)]   \\
+    &= \frac12 \int A_\mu [g^{\mu \nu} \partial^2 - \partial^\mu \partial^\nu]A_\nu \\
+    &= \frac12 \int \frac{d^4 k}{(2\pi)^4} \tilde{A}_\mu(k)[-k^2 g^{\mu\nu} + k^\mu k^\nu]\tilde{A}_\nu(k)
+    \end{align*}
+    L'operatore è singolare, infatti ha dei modi zero
+    \[
+        [g^{\mu \nu} \partial^2 - \partial^\mu \partial^\nu] \partial_\nu \theta = 0 \forall \theta
+    \]
+    $\partial_\nu\theta$ è essenzialmente una trasformazione di gauge del campo nullo $A_\nu = 0$.
+
+    Non possiamo allora definire il propagatore del fotone.
+    
+\end{example}
 
 \section{QCD}
 \subsection{Modello a quark di Gell-mann \& Zweig}
