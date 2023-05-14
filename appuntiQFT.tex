@@ -1081,8 +1081,87 @@ Per risolvere il problema dobbiamo fissare una gauge.
     $\partial_\nu\theta$ è essenzialmente una trasformazione di gauge del campo nullo $A_\nu = 0$.
 
     Non possiamo allora definire il propagatore del fotone.
-    
 \end{example}
+
+\section{Metodo di Faddeev-Popov}
+    Per risolvere il problema si può usare il metodo di Faddeev-Popov. Consideriamo la funzione di partizione 
+    \[
+    Z = \int DA\,e^{i \int d^4x\, [-\frac14 F_{\mu\nu}^aF^{\mu\nu, a}]}    
+    \]
+\begin{observation}[Invarianza misura]
+    Osserviamo subito che sia la lagrangiana, sia la misura sono invarianti di gauge, in particolare per la misura si vede che sotto una trasformazione di gauge infinitesima si ha
+    \[
+    A'\phantom{.}_\mu^a = A_\mu^a - f_{abc} \theta^b(x) A_\mu^c(x) - \frac{1}{g}\partial_\mu\theta^a(x)    
+    \]
+    per cui
+    \[
+    DA' = DA \det N , \qquad N = \fdv{A'\phantom{.}_\mu^a(x)}{A_\nu^b(y)}   
+    \]
+    Allora
+    \[
+    N = \delta^4(x - y) \delta_\mu^\nu\, [\delta_{ab} - f_{adc}\theta^d(x)\delta_{cb}] = \delta^4(x - y) \delta_\mu^\nu \, [\delta_{ab} + f_{acd}\theta^d(x)\delta_{cb}]    
+    \]
+    Utilizzando adesso che
+    \[
+    \det(\id + L) = 1 + \tr L + \dots    
+    \]
+    e che
+    \[
+    f_{aab} = 0    
+    \]
+    per asimmetria, si ha che
+    \[
+    \det N = 1    
+    \]
+    quindi la misura è invariante di gauge.
+\end{observation}
+
+\begin{definition}[Orbita di gauge]
+    Dato un campo di gauge $A_\mu$ definiamo orbita di gauge l'insieme dei campi $A_\mu^U$ che si ottengono da $A_\mu$ mediante trasformazione di gauge
+    \[
+    A_\mu^U = U A_\mu U^{-1} + \frac{i}{g}(\partial_\mu U)U^{-1}    
+    \]         
+\end{definition}
+
+\begin{definition}[Gauge fixing]
+    Definiamo condizione di gauge o gauge fixing una condizione del tipo
+    \[
+    G^\mu A_\mu^{U, a}(x) = B^a(x)    
+    \]        
+    che per una data orbita di gauge ammette un'unica soluzione $U$.
+    [Inserire immagine gauge fixing!!]
+\end{definition}
+\begin{example}
+    Un esempio di gauge fixing è dato dalla scelta
+    \[
+    G^\mu = \partial^\mu \qquad B^a = 0    
+    \]
+\end{example}
+
+Per introdurre il metodo di FP vediamo anzitutto il primo trucco di FP, cioè
+\[
+1 = \Delta_G[A] \int DU\, \delta(G^\mu A_\mu^U - B)    
+\]
+dove $DU$ è la misura invariante di Haar.
+
+\begin{definition}[Misura left di Haar]
+    Dato un gruppo G con elementi g si dice che $d_L g$ è una misura left-invariante se 
+    \[
+        \int f(g_0 \cdot g)\,d_L g = \int f(g)\,d_L g \qquad \forall g_0 \in G
+    \]
+    cioè se 
+    \[
+    d_L(g_0 \cdot g) = d_L(g) \qquad \forall g_0 \in G    
+    \]
+\end{definition}
+Analogamente si definisce una misura right-invariante di Haar.
+
+Nel caso di nostro interesse le due misure coincidono e si parla di misura di Haar.
+
+Notiamo ora che $\Delta_G[A]$ è invariante di gauge, infatti
+\begin{align*}
+    \Delta_G[A^{U'}] &=     \\
+\end{align*}
 
 \section{QCD}
 \subsection{Modello a quark di Gell-mann \& Zweig}
