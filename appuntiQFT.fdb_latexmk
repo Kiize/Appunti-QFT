@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1684163700 "d:/Documenti/Appunti QFT/appuntiQFT.tex" "appuntiQFT.pdf" "appuntiQFT" 1684163702 0
+["pdflatex"] 1684175327 "d:/Documenti/Appunti QFT/appuntiQFT.tex" "appuntiQFT.pdf" "appuntiQFT" 1684175330 0
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1683746730 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1679931479 11548 45d13782edabdc126eb308b52311b72a ""
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/pk/ljfour/public/bbold/dpi600/bbold10.pk" 1677854347 12432 c39568dae4c2a2c720cf8e1c3f5eb25a ""
@@ -166,11 +166,11 @@
   "D:/Program Files (x86)/MiKTeX/tex/latex/url/url.sty" 1388494052 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044406800 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "appuntiQFT.aux" 1684163702 4009 75deba730c28e72227c1f504047603a0 "pdflatex"
-  "appuntiQFT.out" 1684163702 4267 508cee498ebf0dfee43f8c371a5201d3 "pdflatex"
-  "appuntiQFT.tex" 1684163699 54781 bc400c70a26071a08fe1ba3db0a3f789 ""
-  "appuntiQFT.toc" 1684163702 2140 274596d03a1487c099124ca06fff4f6f "pdflatex"
-  "d:/Documenti/Appunti QFT/appuntiQFT.tex" 1684163699 54781 bc400c70a26071a08fe1ba3db0a3f789 ""
+  "appuntiQFT.aux" 1684175329 4202 0ea63fd591519a78929ab4aa2fc382f4 "pdflatex"
+  "appuntiQFT.out" 1684175329 4408 a226d0458c51b72d2c6436c4f03f12ea "pdflatex"
+  "appuntiQFT.tex" 1684175325 56132 1964c7ec627f3791c9e0bf24d9d8ff39 ""
+  "appuntiQFT.toc" 1684175329 2223 0ebdf48a928724aad2b1ed26556de9b9 "pdflatex"
+  "d:/Documenti/Appunti QFT/appuntiQFT.tex" 1684175325 56132 1964c7ec627f3791c9e0bf24d9d8ff39 ""
   (generated)
   "appuntiQFT.aux"
   "appuntiQFT.log"

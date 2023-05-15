@@ -1084,6 +1084,7 @@ Per risolvere il problema dobbiamo fissare una gauge.
 \end{example}
 
 \section{Metodo di Faddeev-Popov}
+\label{section:FP}
     Per risolvere il problema si può usare il metodo di Faddeev-Popov. Consideriamo la funzione di partizione 
     \[
     Z = \int DA\,e^{i \int d^4x\, [-\frac14 F_{\mu\nu}^aF^{\mu\nu, a}]}    
@@ -1184,11 +1185,11 @@ Calcoliamo ora un'espressione esplicita per $\Delta_G[A]$
 \begin{align*}
     \Delta_G[A]^{-1} &= \int DU\, \delta(G^\mu A_\mu^U - B) \\
     &= \int D\theta\, J[\theta] \delta(G^\mu A_\mu^{U(\theta)} - B) \\
-    &= \frac{J[\theta]}{\det \tilde{M}_G}
+    &= \frac{J[\theta]}{\det M_G}
 \end{align*}
 con 
 \[
-(\tilde{M}_G(x, y))_{ab} = \eval{\fdv{(G^\mu A_\mu^{U(\theta)a})}{\theta_b(y)}}_{\theta = \bar{\theta}}    
+(M_G(x, y))_{ab} = \eval{\fdv{(G^\mu A_\mu^{U(\theta)a})}{\theta_b(y)}}_{\theta = \bar{\theta}}    
 \]
 dove $\bar{\theta}$ è l'unica soluzione di 
 \[
@@ -1197,7 +1198,7 @@ dove $\bar{\theta}$ è l'unica soluzione di
 \begin{observation}
     Abbiamo alcune libertà sui termini di FP. Possiamo infatti porre $\theta = 0$ e $J[\theta] = 1$ così da ottenere
     \[
-    \tilde{Z} = \int DA\, \det \tilde{M}_G \delta(G^\mu A_\mu - B)e^{iS[A]}   
+    \tilde{Z} = \int DA\, \det M_G \delta(G^\mu A_\mu - B)e^{iS[A]}   
     \]
     Essendo $B^a(x)$ arbitrario e siccome $\tilde{Z}$ non dipende da B, possiamo dare una dinamica al campo in forma di termine lagrangiano aggiuntivo
     \[
@@ -1482,4 +1483,33 @@ La soluzione dell'equazione con condizione al contorno $W(C_0) = \id$ è data da
 W(C_\tau) = P \exp\left(-ig \int_{C_\tau}A_\mu(z)dz^\mu \right)    
 \]
 con $P$ path-ordering.
+
+\subsection{QCD perturbativa}
+Consideriamo una lagrangiana del tipo
+\[
+\lagr = \lagr_G + \lagr_F + \lagr_{GF}    
+\]
+dove i singoli termini sono
+\begin{align*}
+    \lagr_G &= -\frac14 F_{\mu\nu}^aF^{\mu\nu, a} \\
+    \lagr_F &= \sum_{f=1}^{N_f} \bar{\psi}_f (i\slashed{D} - m_f)\psi_f \\
+    \lagr_{GF} &= -\frac{1}{2\alpha}(\partial^\mu A_\mu^a)^2  
+\end{align*}
+Riprendendo quanto fatto in \ref{section:FP} possiamo scrivere
+\[
+\tilde{Z} = \int DA D\bar{\psi}D\psi \, \det M_G e^{iS}    
+\]
+Ricordando che per le variabili di Grassmann vale
+\[
+\int d\bar{\eta}d\eta e^{-\bar{\eta}^t A \eta} = \det A    
+\]
+Possiamo scrivere $\det M_G$ come un integrale nelle variabili di Grassmann. A meno di una costante, infatti, abbiamo che
+\begin{align*}
+    \det M_G &\propto \int D\bar{c}Dc\, \exp\left(-\int d^4x d^4y\,\bar{c}_a(x)(-ig M_G(x, y))_{ab}c_b(y) \right) \\
+    &= \int D\bar{c}Dc\, \exp\left(-\int d^4x d^4y\,\bar{c}_a(x)(-\partial^\mu)(D_\mu^{(agg)})_{ab}c_b(y) \right) \\
+    &= \int D\bar{c}Dc\, e^{i\int d^4x\, \lagr_{FP}}
+\end{align*}
+I $c, \bar{c}$ sono detti campi di ghost e sono scalari benchè anticommutanti. Non violano però il teorema di spin-statistica in quanto non esistono come eccitazioni.
+
+Quindi il termine aggiuntivo di Faddeev-Popov può essere visto come un termine aggiuntivo nella lagrangiana
 \end{document}

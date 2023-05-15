@@ -23,3 +23,4 @@
 \contentsline {subsubsection}{\numberline {7.1.2}Jet adronici}{18}{subsubsection.7.1.2}%
 \contentsline {subsection}{\numberline {7.2}Derivata covariante}{18}{subsection.7.2}%
 \contentsline {subsubsection}{\numberline {7.2.1}Trasporto parallelo}{20}{subsubsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.3}QCD perturbativa}{21}{subsection.7.3}%
