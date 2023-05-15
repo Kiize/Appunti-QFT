@@ -1160,8 +1160,52 @@ Nel caso di nostro interesse le due misure coincidono e si parla di misura di Ha
 
 Notiamo ora che $\Delta_G[A]$ è invariante di gauge, infatti
 \begin{align*}
-    \Delta_G[A^{U'}] &=     \\
+    \Delta_G[A^{U'}]^{-1} &= \int DU\,\delta(G^\mu(A_\mu^{U'})^U - B) \\
+    &= \int DU\,\delta(G^\mu A_\mu^{U'U} - B)    \\
+    &= \int DU\, \delta(G^\mu A_\mu^U - B) \\
+    &= \Delta_G[A]^{-1} \qquad\qquad\forall U' \in SU(N_c)
 \end{align*}
+Utilizziamo questa relazione nella funzione di partizione 
+\[
+Z = \int DA\, e^{iS[A]}\Delta_G[A]\int DU\,\delta(G^\mu A_\mu^U - B)  
+\]
+Possiamo ora cambiare variabile di integrazione
+\[
+A_\mu \to A_\mu^{U'}    
+\]
+che equivale ad usare l'invarianza di gauge e porre $U' = U^{-1}$, da cui
+\begin{align*}
+    Z &= \int DA\, e^{iS[A]}\Delta_G[A]\delta(G^\mu A_\mu - B) \int DU \\
+    &= \tilde{Z}\int DU
+\end{align*}
+Abbiamo in questo modo isolato la divergenza della funzione di partizione. 
+
+Calcoliamo ora un'espressione esplicita per $\Delta_G[A]$
+\begin{align*}
+    \Delta_G[A]^{-1} &= \int DU\, \delta(G^\mu A_\mu^U - B) \\
+    &= \int D\theta\, J[\theta] \delta(G^\mu A_\mu^{U(\theta)} - B) \\
+    &= \frac{J[\theta]}{\det \tilde{M}_G}
+\end{align*}
+con 
+\[
+(\tilde{M}_G(x, y))_{ab} = \eval{\fdv{(G^\mu A_\mu^{U(\theta)a})}{\theta_b(y)}}_{\theta = \bar{\theta}}    
+\]
+dove $\bar{\theta}$ è l'unica soluzione di 
+\[
+    G^\mu A_\mu^{U(\theta)a} = B^a
+\]
+\begin{observation}
+    Abbiamo alcune libertà sui termini di FP. Possiamo infatti porre $\theta = 0$ e $J[\theta] = 1$ così da ottenere
+    \[
+    \tilde{Z} = \int DA\, \det \tilde{M}_G \delta(G^\mu A_\mu - B)e^{iS[A]}   
+    \]
+    Essendo $B^a(x)$ arbitrario e siccome $\tilde{Z}$ non dipende da B, possiamo dare una dinamica al campo in forma di termine lagrangiano aggiuntivo
+    \[
+    \lagr \to \lagr - \frac{1}{2\alpha}(B^a(x))^2 = \lagr - \frac{1}{2\alpha}(G^\mu A_\mu^a)^2      
+    \]
+    Il termine aggiuntivo fissa la gauge.
+\end{observation}
+
 
 \section{QCD}
 \subsection{Modello a quark di Gell-mann \& Zweig}
