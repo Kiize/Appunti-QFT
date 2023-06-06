@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1684175327 "d:/Documenti/Appunti QFT/appuntiQFT.tex" "appuntiQFT.pdf" "appuntiQFT" 1684175330 0
-  "C:/Users/worst/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1683746730 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+["pdflatex"] 1684682476 "d:/Documenti/Appunti QFT/appuntiQFT.tex" "appuntiQFT.pdf" "appuntiQFT" 1684682479 0
+  "C:/Users/worst/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1684682309 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1679931479 11548 45d13782edabdc126eb308b52311b72a ""
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/pk/ljfour/public/bbold/dpi600/bbold10.pk" 1677854347 12432 c39568dae4c2a2c720cf8e1c3f5eb25a ""
   "C:/Users/worst/AppData/Local/MiKTeX/fonts/tfm/public/bbold/bbold10.tfm" 1677854344 788 aa2bfd021367054a224c4cf5a9967398 ""
@@ -166,11 +166,11 @@
   "D:/Program Files (x86)/MiKTeX/tex/latex/url/url.sty" 1388494052 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044406800 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "D:/Program Files (x86)/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "appuntiQFT.aux" 1684175329 4202 0ea63fd591519a78929ab4aa2fc382f4 "pdflatex"
-  "appuntiQFT.out" 1684175329 4408 a226d0458c51b72d2c6436c4f03f12ea "pdflatex"
-  "appuntiQFT.tex" 1684175325 56132 1964c7ec627f3791c9e0bf24d9d8ff39 ""
-  "appuntiQFT.toc" 1684175329 2223 0ebdf48a928724aad2b1ed26556de9b9 "pdflatex"
-  "d:/Documenti/Appunti QFT/appuntiQFT.tex" 1684175325 56132 1964c7ec627f3791c9e0bf24d9d8ff39 ""
+  "appuntiQFT.aux" 1684682478 4482 6cca3873d8a91ed752828031f8b68c45 "pdflatex"
+  "appuntiQFT.out" 1684682478 4862 07bc6ebfed2e601009542b3e5b7784d0 "pdflatex"
+  "appuntiQFT.tex" 1684682474 56744 6553622d0ff6696a6c7017e44f15d783 ""
+  "appuntiQFT.toc" 1684682478 2421 37f68f762d7c16090de44202a3679141 "pdflatex"
+  "d:/Documenti/Appunti QFT/appuntiQFT.tex" 1684682474 56744 6553622d0ff6696a6c7017e44f15d783 ""
   (generated)
   "appuntiQFT.aux"
   "appuntiQFT.log"
